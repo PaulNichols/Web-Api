@@ -1,0 +1,79 @@
+{
+  "ApplicationArea": {
+    "Interaction": {
+      "InteractionDateTime": "2019-07-08T00:00:00.0000000Z",
+      "Originator": {
+        "SystemId": "Digital",
+        "SystemComponentId": "ApttusQuoteCreation",
+        "SystemReferenceId": "2c4eb830-6157-ea11-a94c-0003ffd3a6a8"
+      }
+    },
+    "Message": {
+      "Sender": {
+        "SystemId": "Digital",
+        "SystemComponentId": "ApttusQuoteCreation",
+        "SystemReferenceId": "2c4eb830-6157-ea11-a94c-0003ffd3a6a8"
+      },
+      "CreationDateTime": "2019-07-08T00:00:00.0000000Z"
+    }
+  },
+  "DataArea": {
+    "ProductAgreementList": [
+      {
+
+        "AgreementStartDate": "2020-02-25",
+        "IdentifierIdentification": [
+          {
+            "IdentificationSchemeAgencyIdentifier": "APTTUS",
+            "IdentificationSchemeAgencyName": "Royal Automobile Club of Queensland",
+            "Designation": "83801166-a05d-ea11-a94c-0003fff469c5"
+          }
+        ],
+        "ProductAgreementReference": [
+          {
+            "TypeCode": "ProductName",
+            "Id": "Roadside Extra"
+          }
+        ],
+
+        "VehicleCoverableList": [
+          {
+            "Vehicle": {
+
+              "Manufacturer": {
+                "BrandName": "VOLK",
+                "ManufacturerName": "VOLK",
+                "ModelName": "GOLF",
+                "ModelVariant": "2|-dot-|0 TDI COMFORTLINE",
+                "ModelYear": "2014"
+              },
+              "Measurement": {
+
+                "LengthMeasure": {
+                  "Measure": 0,
+                  "UnitCode": "mm"
+                },
+                "LoadCapacityMeasure": {
+                  "Measure": 541,
+                  "UnitCode": "kg"
+                }
+              },
+              "RegistrationNumber": [
+                {
+                  "Id": "XYZ345",
+                  "JurisdictionCode": "VIC"
+                }
+              ],
+              "Status": "User preferred",
+
+              "VehicleBody": {
+                "Colour": "Black",
+                "VehicleBodyTypeCode": "H|-fslash-|BAC"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

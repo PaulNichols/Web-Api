@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Columns" xml:space="preserve">
+    <value>cpq_AssetLineItem.AssetNumber,
+cpq_AssetLineItem.AssetStatus,
+cpq_AssetLineItem.CancellationComments,
+cpq_AssetLineItem.CancelledDate,
+cpq_AssetLineItem.Description,
+cpq_AssetLineItem.StartDate,
+cpq_AssetLineItem.EndDate,
+cpq_AssetLineItem.ext_PRN,
+cpq_AssetLineItem.ext_MembershipTC,
+cpq_AssetLineItem.ProductId.ProductCode,
+cpq_AssetLineItem.ext_CTPcertificatenumber,
+cpq_AssetLineItem.ext_AssetStatus,
+cpq_AssetLineItem.Id,
+cpq_AssetLineItem.Name,
+cpq_AssetLineItem.AccountId,
+cpq_AssetAttributeValue.ext_Location,
+cpq_AssetLineItem.ext_AssetExternalName,
+cpq_AssetLineItem.AttributeValueId,
+cpq_AssetLineItem.ProductId,
+cpq_AssetLineItem.ProductId.ext_ProductLevel,
+cpq_AssetLineItem.ProductId.ext_Pillar,
+cpq_AssetLineItem.ProductId.ext_externalName,
+cpq_AssetLineItem.QuoteId,
+cpq_AssetLineItem.ParentAssetId,
+cpq_AssetLineItem.NetPrice,
+cpq_AssetLineItem.QuoteLineItemId,
+cpq_AssetLineItem.ext_PolicyNumber,
+cpq_AssetLineitem.OptionId,
+cpq_AssetLineitem.OptionId.ext_externalName,
+cpq_AssetLineitem.OptionId.ProductCode,
+cpq_AssetLineitem.ExternalId,
+ext_AssetNo,
+cpq_AssetLineitem.ext_DirectDebitEnabled,
+cpq_AssetAttributeValue.ext_VehicleType,
+cpq_AssetAttributeValue.ext_VehicleType.Id,
+cpq_AssetAttributeValue.ext_VehicleType.ext_MakeYear,
+cpq_AssetAttributeValue.ext_VehicleType.ext_Make,
+cpq_AssetAttributeValue.ext_VehicleType.ext_Model,
+cpq_AssetAttributeValue.ext_VehicleType.ext_Body,
+cpq_AssetAttributeValue.ext_VehicleType.ext_GlassCode,
+cpq_AssetAttributeValue.ext_VehicleType.ext_NVIC,
+cpq_AssetAttributeValue.ext_VehicleType.ext_Length,
+cpq_AssetAttributeValue.ext_VehicleType.ext_GVM,
+cpq_AssetAttributeValue.ext_VehicleType.ext_variant,
+cpq_AssetAttributeValue.ext_VehicleType.ext_vehicleOption,
+cpq_AssetAttributeValue.ext_VehicleType.ext_colour,
+cpq_AssetAttributeValue.ext_VehicleType.ext_vin,
+cpq_AssetAttributeValue.ext_VehicleType.ext_status,
+cpq_AssetAttributeValue.ext_VehicleType.ext_rego,
+cpq_AssetAttributeValue.ext_VehicleType.ext_accountId,
+cpq_AssetAttributeValue.ext_VehicleType.ext_Fuel,
+cpq_AssetAttributeValue.ext_VehicleType.ext_Transmission,
+cpq_AssetAttributeValue.ext_VehicleType.ext_KerbWeight,
+cpq_AssetAttributeValue.ext_VehicleType.ext_LoadCapacity,
+cpq_AssetAttributeValue.ext_Address.AddressTypeId,
+cpq_AssetAttributeValue.ext_Address.Country,
+cpq_AssetAttributeValue.ext_Address.ext_BuildingLevel,
+cpq_AssetAttributeValue.ext_Address.ext_DPID,
+cpq_AssetAttributeValue.ext_Address.ext_EffectiveFrom,
+cpq_AssetAttributeValue.ext_Address.ext_PostalDeliveryType,
+cpq_AssetAttributeValue.ext_Address.ext_PostalNumber,
+cpq_AssetAttributeValue.ext_Address.ext_States,
+cpq_AssetAttributeValue.ext_Address.ext_StreetName,
+cpq_AssetAttributeValue.ext_Address.ext_StreetNumber,
+cpq_AssetAttributeValue.ext_Address.ext_Suburb,
+cpq_AssetAttributeValue.ext_Address.ext_UnitApartmentNumber,
+cpq_AssetAttributeValue.ext_Address.ext_ValidationStatus,
+cpq_AssetAttributeValue.ext_Address.ext_ValidationTime,
+cpq_AssetAttributeValue.ext_Address.Id,
+cpq_AssetAttributeValue.ext_Address.Name,
+cpq_AssetAttributeValue.ext_Address.PostalCode,
+cpq_AssetAttributeValue.ext_Address.State,
+cpq_AssetAttributeValue.ext_Boat,
+cpq_AssetAttributeValue.ext_Pet,
+cpq_AssetAttributeValue.ext_OccupancyType,
+cpq_AssetAttributeValue.ext_WaiveWaitingPeriod,
+cpq_AssetAttributeValue.ext_DwellingType</value>
+  </data>
+  <data name="HttpErrorMessage" xml:space="preserve">
+    <value>The HTTP status code of the response was not expected.</value>
+  </data>
+  <data name="HttpTimeoutErrorMessage" xml:space="preserve">
+    <value>A timeout error occurred</value>
+  </data>
+  <data name="HttpUnavaliableErrorMessage" xml:space="preserve">
+    <value>Service Unavailable</value>
+  </data>
+</root>

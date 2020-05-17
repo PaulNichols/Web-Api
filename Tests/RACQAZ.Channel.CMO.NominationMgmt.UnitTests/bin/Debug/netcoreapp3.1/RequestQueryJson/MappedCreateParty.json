@@ -1,0 +1,91 @@
+{
+  "PartyRequest": {
+    "ApplicationArea": {
+      "Interaction": {
+        "Originator": {
+          "SystemId": "Online",
+          "SystemComponentId": "Party",
+          "SystemReferenceId": "38cae6b7-c39b-4eb3-9ac5-1e7a5aab2301"
+        },
+        "InteractionDateTime": "2020-02-18T17:18:29.1051459+10:00"
+      },
+      "Message": {
+        "Sender": {
+          "SystemId": "Online",
+          "SystemComponentId": "Party",
+          "SystemReferenceId": "ba264eb8-5e2c-4c3d-a677-3bee86da288c"
+        },
+        "CreationDateTime": "2020-02-18T17:18:29.1051459+10:00"
+      }
+    },
+    "DataArea": {
+      "Party": {
+        "Type": "Person",
+        "IdentifierIdentification": [],
+        "SpecifiedPerson": {
+
+          "SpecifiedPersonName": [
+            {
+              "GivenName": [
+                {
+                  "SequenceNumber": 1,
+                  "Name": "JOHN"
+                }
+              ],
+              "FamilyName": "SMITH",
+              "UsageType": "LGL"
+            }
+          ],
+          "PersonStatusIndicator": "Alive",
+
+          "BirthDate": "1999-05-31",
+
+          "ContactTelephone": [
+            {
+              "Usage": "01",
+              "TelephoneNumber": "123451588"
+            }
+          ],
+          "ContactInternet": [
+            {
+              "EmailAddress": "abc@abc.com",
+              "Usage": "01"
+            }
+          ],
+          "Address": [
+            {
+              "Usage": "Residential",
+              "CountryName": "AUS",
+              "PostCode": "4670",
+              "StateTerritory": "QLD",
+              "Line1": "123 FAKE ST ",
+              "LocalityName": "NEWSTEAD"
+            }
+          ],
+          "Communication": [
+            {
+              "DeliverySubscription": "DeliveryChannelGlobal",
+              "CommunicationPreference": "Postal"
+            },
+            {
+              "DeliverySubscription": "DeliveryChannelAGM",
+              "CommunicationPreference": "Postal"
+            },
+            {
+              "DeliverySubscription": "DeliveryChannelMembershipCard",
+              "CommunicationPreference": "Postal"
+            },
+            {
+              "DeliverySubscription": "DeliveryChannelNotices",
+              "CommunicationPreference": "Postal"
+            },
+            {
+              "DeliverySubscription": "DeliveryChannelTRA",
+              "CommunicationPreference": "Postal"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

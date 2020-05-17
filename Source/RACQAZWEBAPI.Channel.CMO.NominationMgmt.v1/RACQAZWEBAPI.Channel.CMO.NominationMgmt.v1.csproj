@@ -1,0 +1,118 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Build">
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <!-- Use the latest version of the C# language. -->
+    <LangVersion>latest</LangVersion>
+    <!-- CS1591 - Don't warn about all public members not being documented. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Used to store connection strings and other sensitive settings, so you don't have to check them into your source
+         control provider. Only use this in Development, it is not intended for Production use.
+         See http://docs.asp.net/en/latest/security/app-secrets.html -->
+    <UserSecretsId>RACQAZWEBAPI.Channel.CMO.NominationMgmt.v-9F083625-F689-4C68-938A-E80BA1D23ED2</UserSecretsId>
+    <!-- Enable tiered JIT compilation for better performance.
+         See http://mattwarren.org/2017/12/15/How-does-.NET-JIT-a-method-and-Tiered-Compilation/ -->
+    <TieredCompilation>true</TieredCompilation>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package">
+    <Version>1.0.0</Version>
+    <Authors>RACQ</Authors>
+    <Company>RACQ</Company>
+    <Product>RACQAZWEBAPI.Channel.CMO.NominationMgmt.v</Product>
+    <Description>AZURE API - Entity Service to process CMO nominations.</Description>
+    <Copyright>Copyright © RACQ. All rights Reserved</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\ErrorClaimResponse.cs" />
+  </ItemGroup>
+
+  <ItemGroup Label="Files">
+    <Content Include="wwwroot\.well-known\security.txt">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Label="Package References">
+    <PackageReference Include="Ben.BlockingDetector" Version="0.0.3" />
+    <PackageReference Include="Boxed.AspNetCore" Version="5.1.1" />
+    <PackageReference Include="Boxed.AspNetCore.Swagger" Version="7.0.0" />
+    <PackageReference Include="Boxed.Mapping" Version="4.0.0" />
+    <PackageReference Include="CorrelationId" Version="2.1.0" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
+    <PackageReference Include="Helper.Library" Version="1.0.81" />
+    <PackageReference Include="LazyCache.AspNetCore" Version="2.0.4" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.13.1" />
+    <PackageReference Include="Microsoft.AspNetCore.ApplicationInsights.HostingStartup" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.AzureAppServicesIntegration" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.5" />
+    <PackageReference Include="Microsoft.Azure.ServiceBus" Version="4.1.2" />
+    <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="3.1.2" />
+    <PackageReference Include="RACQAZWEBAPI.Platform.ErrorHandling" Version="100.2.27" />
+    <PackageReference Include="RACQAZWEBAPI.Platform.RestClient" Version="100.2.27" />
+    <PackageReference Include="SecurityCodeScan" Version="3.5.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Serilog" Version="2.9.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+    <PackageReference Include="Serilog.Enrichers.AspNetCore.HttpContext" Version="1.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
+    <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
+    <PackageReference Include="Serilog.Exceptions" Version="5.4.0" />
+    <PackageReference Include="Serilog.Filters.Expressions" Version="2.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.ApplicationInsights" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.Debug" Version="1.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);published_app/**/*</DefaultItemExcludes>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <NeutralLanguage>en-AU</NeutralLanguage>
+  </PropertyGroup>
+
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

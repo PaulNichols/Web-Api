@@ -1,0 +1,111 @@
+
+
+{
+  "ApplicationArea": {
+    "Message": {
+      "Sender": {
+        "SystemId": "string",
+        "SystemComponentId": "string",
+        "SystemReferenceId": "string"
+      },
+      "CreationDateTime": "string"
+    },
+    "Interaction": {
+      "Originator": {
+        "SystemId": "string",
+        "SystemComponentId": "string",
+        "SystemReferenceId": "string"
+      },
+      "InteractionDateTime": "2020-02-25T05:07:08.998Z"
+    }
+  },
+    "DataArea": {
+      "Nomination": {
+        "Identifier": "2",
+        "Batch_No": "A01576",
+        "Batch_Type": "N",
+        "ProgramCode": "FCM",
+        "ClientCode": "FORDCM",
+        "Trans_Type": "11",
+        "NominationDate": "24/10/2019",
+        "VIN": "1234K9AA5KBC03983",
+        "Description": "ENDURA  2019.00  SUV  .  ST LINE  2.0L DSL  FWD AUTO",
+        "Make": "FORD",
+        "Model": "ENDURA",
+        "BodyType": "WAGON",
+        "Series": "SERIES 55",
+        "Colour": "RED",
+        "YearOfRelease": "2019",
+        "Rego": "RTFH38",
+        "OwnerType": "B1",
+        "Title": "",
+        "FirstName": "",
+        "Surname": "",
+        "BusinessName": "Arun's IMPERIAL COMPANY",
+        "ABN": "72009660575",
+        "DOB": "",
+        "HomePhone": "",
+        "BusinessPhone": "411111111",
+        "MobilePhone": "",
+        "Email": "owner@theimpcompany.com.au",
+        "Privacy": "",
+        "Consent": "",
+        "StateofMembership": "QLD",
+        "ExistingClubMembership": "Y",
+        "ExistingClubMembershipNumber": "3083670089715217",
+        "ReplacementVehicleRego": "string",
+        "AddressLine1": "13 KITTYHAWK AVE",
+        "AddressLine2": "",
+        "City": "INALA",
+        "State": "QLD",
+        "Postcode": "4077",
+        "PostalAddressLine1": "",
+        "PostalAddressLine2": "",
+        "PostalCity": "",
+        "PostalState": "",
+        "PostalPostcode": "",
+        "NominationID": "17057123",
+        "PlanCode": "1",
+        "ClubPlan": "CLB",
+        "ClubPlanCode": "C",
+        "StartDate": "2019-12-04T14:17:00",
+        "ExpirationDate": "string",
+        "StatusCode": "string",
+        "StatusDescription": "string",
+        "StatusTimeStamp": "string",
+        "StatusExtraDetail": "string"
+      }
+  },
+  "Result": {
+    "Message": {
+      "Errors": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ],
+      "Warnings": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ],
+      "InformationList": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ]
+    },
+    "ResultCode": "string"
+  }
+}

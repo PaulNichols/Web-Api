@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "05e279cd-ee55-4949-9d9a-758ae1e248ef",
+		"name": "QA - External - RACQAZAPI.Channel.CMO.NominationMgmt.v1",
+		"description": "Entity Service to process CMO nominations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "External - APIM Token - NPRD Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91fd54ab-9e38-4acc-a493-25e199d9c943",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"APIMToken\", \"Bearer \" + jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "dd42f029-ab83-4853-9800-30a7f2d56060",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "gSNH?-@Tg2c4ea93?x@yz=P1iMgglFm3",
+							"type": "text"
+						},
+						{
+							"key": "resource",
+							"value": "dd42f029-ab83-4853-9800-30a7f2d56060",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sts.windows.net/b820cdba-7d5f-4745-8226-6715f26a5e8f/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"sts",
+						"windows",
+						"net"
+					],
+					"path": [
+						"b820cdba-7d5f-4745-8226-6715f26a5e8f",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "External - APIM Token - NPRD Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91fd54ab-9e38-4acc-a493-25e199d9c943",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"APIMToken\", \"Bearer \" + jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "dd42f029-ab83-4853-9800-30a7f2d56060",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "gSNH?-@Tg2c4ea93?x@yz=P1iMgglFm3",
+							"type": "text"
+						},
+						{
+							"key": "resource",
+							"value": "dd42f029-ab83-4853-9800-30a7f2d56060",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sts.windows.net/b820cdba-7d5f-4745-8226-6715f26a5e8f/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"sts",
+						"windows",
+						"net"
+					],
+					"path": [
+						"b820cdba-7d5f-4745-8226-6715f26a5e8f",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QA-APIM CMO Nominations",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6fbe36fd-2d2f-45d9-956c-98551fde043c",
+						"exec": [
+							"pm.sendRequest({\r",
+							"      url:  'https://login.microsoftonline.com/b820cdba-7d5f-4745-8226-6715f26a5e8f/oauth2/token', \r",
+							"      method: 'POST',\r",
+							"      header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/form-data'\r",
+							"      },\r",
+							"      body: {\r",
+							"          mode: 'urlencoded',\r",
+							"          urlencoded: [\r",
+							"            {key: \"grant_type\", value: \"client_credentials\", disabled: false},\r",
+							"            {key: \"client_id\", value: '349fab41-c3ea-4a91-8ecc-4ec965b2aaa4', disabled: false},\r",
+							"            {key: \"resource\", value: '349fab41-c3ea-4a91-8ecc-4ec965b2aaa4', disabled: false},\r",
+							"            {key: \"client_secret\", value: '?r-+5j-c7E6nhQeZiApY17ez.-a=mh0U', disabled: false}\r",
+							"        ]\r",
+							"      }\r",
+							"  }, function (err, res) {\r",
+							"        pm.environment.set(\"authorization\", \"Bearer \" + res.json().access_token);\r",
+							"  });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "b4b77d1ff38e4450b1e9c1a540009c2e"
+					},
+					{
+						"key": "x-correlation-id",
+						"value": "7f2f8509-4aec-4347-bbec-3dec2b62eb92",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ApplicationArea\": {\n    \"Message\": {\n      \"Sender\": {\n        \"SystemId\": \"string\",\n        \"SystemComponentId\": \"string\",\n        \"SystemReferenceId\": \"string\"\n      },\n      \"CreationDateTime\": \"string\"\n    },\n    \"Interaction\": {\n      \"Originator\": {\n        \"SystemId\": \"string\",\n        \"SystemComponentId\": \"string\",\n        \"SystemReferenceId\": \"string\"\n      },\n      \"InteractionDateTime\": \"2020-02-25T05:07:08.998Z\"\n    }\n  },\n  \"DataArea\": {\n    \"Nomination\": {\n      \"Identifier\": \"2\",\n      \"Batch_No\": \"A01576\",\n      \"Batch_Type\": \"N\",\n      \"ProgramCode\": \"FCM\",\n      \"ClientCode\": \"FORDCM\",\n      \"Trans_Type\": \"11\",\n      \"NominationDate\": \"24/10/2019\",\n      \"VIN\": \"1234K9AA5KBC03983\",\n      \"Description\": \"ENDURA  2019.00  SUV  .  ST LINE  2.0L DSL  FWD AUTO\",\n      \"Make\": \"FORD\",\n      \"Model\": \"ENDURA\",\n      \"BodyType\": \"WAGON\",\n      \"Series\": \"SERIES 55\",\n      \"Colour\": \"RED\",\n      \"YearOfRelease\": \"2019\",\n      \"Rego\": \"RTFH38\",\n      \"OwnerType\": \"P\",\n      \"Title\": \"MR\",\n      \"FirstName\": \"JOHNXYZABC\",\n      \"Surname\": \"SMITHXYZABC\",\n      \"DOB\": \"1979-05-30\",\n      \"MobilePhone\": \"0413491058\",\n      \"Email\": \"abcxyzasdfgh@abc.com\",\n      \"Privacy\": \"Y\",\n      \"Consent\": \"Y\",\n      \"StateofMembership\": \"QLD\",\n      \"ExistingClubMembership\": \"N\",\n      \"AddressLine1\": \"123 FAKE ST\",\n      \"City\": \"NEWSTEAD\",\n      \"State\": \"QLD\",\n      \"Postcode\": \"4670\",\n      \"NominationID\": \"17057123787\",\n      \"PlanCode\": \"1\",\n      \"ClubPlan\": \"CLB\",\n      \"ClubPlanCode\": \"C\"\n    }\n  },\n  \"Result\": {\n    \"Message\": {\n      \"Errors\": [\n        {\n          \"TimeStamp\": \"string\",\n          \"System\": \"string\",\n          \"Code\": \"string\",\n          \"Description\": \"string\",\n          \"ExtraDetail\": \"string\"\n        }\n      ],\n      \"Warnings\": [\n        {\n          \"TimeStamp\": \"string\",\n          \"System\": \"string\",\n          \"Code\": \"string\",\n          \"Description\": \"string\",\n          \"ExtraDetail\": \"string\"\n        }\n      ],\n      \"InformationList\": [\n        {\n          \"TimeStamp\": \"string\",\n          \"System\": \"string\",\n          \"Code\": \"string\",\n          \"Description\": \"string\",\n          \"ExtraDetail\": \"string\"\n        }\n      ]\n    },\n    \"ResultCode\": \"string\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://racqaz-webapi-channel-cmo-nominationmgmt-qa.azurewebsites.net/v1/channel/cmo/nominations",
+					"protocol": "https",
+					"host": [
+						"racqaz-webapi-channel-cmo-nominationmgmt-qa",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"v1",
+						"channel",
+						"cmo",
+						"nominations"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "https://dev-api2.racq.com.au/external/qa/v1/channel/cmo",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

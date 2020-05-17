@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"config_DeploymentLocation": {
+			"value": "#{DeploymentLocation}"
+		},
+		"namespaces_RACQAZ_SB_qa_EIP_AE_name": {
+			"value": "#{ServiceBusNamespace}"
+		},
+
+		"queues_racqaz_cmonominations_processqueue_name": {
+			"value": "racqaz-cmo-nominations-process-queue"
+		},
+
+		"authorizationRules_SharedAccess_Send_name": {
+			"value": "CMO-NominationsaccessKey-S"
+		},
+		"config_MessageLockDuration": {
+			"value": "#{ServiceBusMessageLockDuration}"
+		}
+	}
+}

@@ -1,0 +1,331 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Repos\\Web-Api\\Tests\\RACQAZ.Channel.CMO.NominationMgmt.UnitTests\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests.csproj": {}
+  },
+  "projects": {
+    "C:\\Repos\\Web-Api\\Source\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Repos\\Web-Api\\Source\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.csproj",
+        "projectName": "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1",
+        "projectPath": "C:\\Repos\\Web-Api\\Source\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.csproj",
+        "packagesPath": "C:\\Users\\paulj\\.nuget\\packages\\",
+        "outputPath": "C:\\Repos\\Web-Api\\Source\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\paulj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Ben.BlockingDetector": {
+              "target": "Package",
+              "version": "[0.0.3, )"
+            },
+            "Boxed.AspNetCore": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
+            "Boxed.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Boxed.Mapping": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "CorrelationId": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.3, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[8.6.2, )"
+            },
+            "Helper.Library": {
+              "target": "Package",
+              "version": "[1.0.81, )"
+            },
+            "LazyCache.AspNetCore": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "Microsoft.ApplicationInsights.AspNetCore": {
+              "target": "Package",
+              "version": "[2.13.1, )"
+            },
+            "Microsoft.ApplicationInsights.DependencyCollector": {
+              "target": "Package",
+              "version": "[2.13.1, )"
+            },
+            "Microsoft.AspNetCore.ApplicationInsights.HostingStartup": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.AzureAppServicesIntegration": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            },
+            "Microsoft.Azure.KeyVault": {
+              "target": "Package",
+              "version": "[3.0.5, )"
+            },
+            "Microsoft.Azure.ServiceBus": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "Microsoft.Azure.Services.AppAuthentication": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.CodeAnalysis.FxCopAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.9.8, )"
+            },
+            "Microsoft.Extensions.Configuration.AzureKeyVault": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.Logging.AzureAppServices": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "RACQAZWEBAPI.Platform.ErrorHandling": {
+              "target": "Package",
+              "version": "[100.2.27, )"
+            },
+            "RACQAZWEBAPI.Platform.RestClient": {
+              "target": "Package",
+              "version": "[100.2.27, )"
+            },
+            "SecurityCodeScan": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Serilog.Enrichers.AspNetCore.HttpContext": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Serilog.Enrichers.Process": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
+            "Serilog.Enrichers.Thread": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Serilog.Exceptions": {
+              "target": "Package",
+              "version": "[5.4.0, )"
+            },
+            "Serilog.Filters.Expressions": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Serilog.Sinks.ApplicationInsights": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Serilog.Sinks.Debug": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Repos\\Web-Api\\Tests\\RACQAZ.Channel.CMO.NominationMgmt.UnitTests\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Repos\\Web-Api\\Tests\\RACQAZ.Channel.CMO.NominationMgmt.UnitTests\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests.csproj",
+        "projectName": "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests",
+        "projectPath": "C:\\Repos\\Web-Api\\Tests\\RACQAZ.Channel.CMO.NominationMgmt.UnitTests\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests.csproj",
+        "packagesPath": "C:\\Users\\paulj\\.nuget\\packages\\",
+        "outputPath": "C:\\Repos\\Web-Api\\Tests\\RACQAZ.Channel.CMO.NominationMgmt.UnitTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\paulj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Repos\\Web-Api\\Source\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.csproj": {
+                "projectPath": "C:\\Repos\\Web-Api\\Source\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoFixture": {
+              "target": "Package",
+              "version": "[4.11.0, )"
+            },
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.3, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.13.1, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.analyzers": {
+              "target": "Package",
+              "version": "[0.10.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

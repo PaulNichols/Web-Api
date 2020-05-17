@@ -1,0 +1,91 @@
+{
+  "ApplicationArea": {
+    "Message": {
+      "Sender": {
+        "SystemId": "string",
+        "SystemComponentId": "string",
+        "SystemReferenceId": "string"
+      },
+      "CreationDateTime": "string"
+    },
+    "Interaction": {
+      "Originator": {
+        "SystemId": "string",
+        "SystemComponentId": "string",
+        "SystemReferenceId": "string"
+      },
+      "InteractionDateTime": "2020-02-25T05:07:08.998Z"
+    }
+  },
+  "DataArea": {
+    "Nomination": {
+      "Identifier": "2",
+      "Batch_No": "A01512",
+      "Batch_Type": "N",
+      "ProgramCode": "FCM",
+      "ClientCode": "FORDCM",
+      "Trans_Type": "11",
+      "NominationDate": "24/02/2020",
+      "VIN": "1234K9AA5KBC03900",
+      "Description": "Ford F150 Truck",
+      "Make": "FORD",
+      "Model": "F150",
+      "BodyType": "TRUCK",
+      "Series": "F250",
+      "Colour": "BLACK",
+      "YearOfRelease": "2020",
+      "Rego": "VNE002",
+      "OwnerType": "P",
+      "Title": "MR",
+      "FirstName": "RICHARD",
+      "Surname": "VILLENEUVE",
+      "DOB": "1964-04-01",
+      "MobilePhone": "0412341169",
+      "Email": "vneuver@me.com",
+      "Privacy": "Y",
+      "Consent": "Y",
+      "StateofMembership": "QLD",
+      "ExistingClubMembership": "N",
+      "AddressLine1": "50 KnightsBridge West Sovereign Island",
+      "City": "Gold Coast",
+      "State": "QLD",
+      "Postcode": "4212",
+      "NominationID": "17057129934",
+      "PlanCode": "1",
+      "ClubPlan": "CLB",
+      "ClubPlanCode": "C"
+    }
+  },
+  "Result": {
+    "Message": {
+      "Errors": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ],
+      "Warnings": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ],
+      "InformationList": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ]
+    },
+    "ResultCode": "string"
+  }
+}

@@ -1,0 +1,2022 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "namespaces_RACQAZ_SB_qa_EIP_AE_name": {
+      "defaultValue": "RACQAZ-SB-qa-EIP-AE",
+      "type": "String"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.ServiceBus/namespaces",
+      "apiVersion": "2018-01-01-preview",
+      "name": "[parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name')]",
+      "location": "Australia East",
+      "tags": {
+        "Owner": "ICC",
+        "SolutionName": "RACQAZ.Platform"
+      },
+      "sku": {
+        "name": "Standard",
+        "tier": "Standard"
+      },
+      "properties": {
+        "zoneRedundant": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/AuthorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/CMO-NominationsaccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Listen",
+          "Manage",
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/AuthorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/ICC-Analysts-Ashley-MSL')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Manage",
+          "Listen",
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/AuthorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/ICC-ServiceBusAccessKey-MSL')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Listen",
+          "Manage",
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/AuthorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/RootManageSharedAccessKey')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Listen",
+          "Manage",
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/networkRuleSets",
+      "apiVersion": "2018-01-01-preview",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/default')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultAction": "Deny",
+        "virtualNetworkRules": [],
+        "ipRules": []
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/qa-icc-queue-finance-receiptmgmt-ausposterrors')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 1024,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/qa-icc-queue-finance-receiptmgmt-bpayerrors')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 1024,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/qa-icc-queue-finance-receiptmgmt-fatzebraerrors')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 1024,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-cmo-nominations-process-queue')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": true,
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-partychangedeventqueue')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-partychangedeventqueueerror')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/sub-apttus-insuranceeventqueueerror')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT30S",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/sub-chr-publishpartyupdateeventqueueerror')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/sub-dax-publishpartyupdateeventqueueerror')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": false,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/sub-mrm-publishpartyupdateeventqueueerror')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/sub-pc-publishpartyupdateeventqueueerror')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": false,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/sub-product-publishpartyupdateeventqueueerror')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": false,
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "enableBatchedOperations": true,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-assistance-docevent-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-finance-receiptmanagement-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-membership-documentevent-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 4096,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT30S",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productagreement-events-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productinvoice-events-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productquote-events-topic')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "defaultMessageTimeToLive": "P14D",
+        "maxSizeInMegabytes": 5120,
+        "requiresDuplicateDetection": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "enableBatchedOperations": true,
+        "status": "Active",
+        "supportOrdering": true,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-cmo-nominations-process-queue/CMO-Nomination-SharedaccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/queues', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-cmo-nominations-process-queue')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Listen",
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/queues/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-partychangedeventqueue/CRM-SharedaccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/queues', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-partychangedeventqueue')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/Apttus-ServiceBusAccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-assistance-docevent-topic/Apttus-ServiceBusAccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-assistance-docevent-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productagreement-events-topic/Apttus-ServiceBusAccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productinvoice-events-topic/Apttus-ServiceBusAccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productinvoice-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-membership-documentevent-topic/MD-ServiceBusTopicAccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-membership-documentevent-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/PC-ServiceBusTopicAccessKey-S')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-finance-receiptmanagement-topic/qa-racqaz-finance-receiptmanagement-topic-apttus-key-s')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-finance-receiptmanagement-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/All')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT1M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": false,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/CaptureAll')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT1M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": false,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/racqaz-apttus-assetchangedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT30S",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/racqaz-apttus-invoicechangedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/racqaz-apttus-paymentchangedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/racqaz-apttus-quotechangedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productagreement-events-topic/racqaz-asset-homeassistproduct-changedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productagreement-events-topic/racqaz-asset-membershipproduct-changedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": false,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/racqaz-ins-claims-paymentsmgmt-changedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/racqaz-insurancepolicypayment-changedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productagreement-events-topic/racqaz-productagreement-changedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productinvoice-events-topic/racqaz-productinvoice-changedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productinvoice-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productinvoice-events-topic/racqaz-productinvoice-revrec-changedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productinvoice-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productquote-events-topic/racqaz-productquote-changedevents-sub')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productquote-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-All-PublishPartyUpdateEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT1M",
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-finance-receiptmanagement-topic/Sub-Apttus')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-finance-receiptmanagement-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/Sub-Apttus-DocumentEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775806S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/Sub-Apttus-InsuranceEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-assistance-docevent-topic/Sub-Assistance-LSDocEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-assistance-docevent-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT1M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.477S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-assistance-docevent-topic/Sub-Assistance-RSADocEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-assistance-docevent-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT1M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.477S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-CHR-PublishPartyUpdateEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/Sub-D365-DocumentEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/Sub-D365-PaymentEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/Sub-D365-ProductPaymentEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT30S",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/Sub-D365-QuoteEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT3M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-DAX-PublishPartyUpdateEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-membership-documentevent-topic/Sub-Membership-DocumentEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-membership-documentevent-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT30S",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": true,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-MRM-PublishPartyUpdateEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-PC-ProcessPartyEvents')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/sub-pos-productpaymentevent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT30S",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/Sub-Product-PaymentDocEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": false,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-Product-PublishPartyUpdateEvent')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "requiresSession": true,
+        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+        "deadLetteringOnMessageExpiration": true,
+        "deadLetteringOnFilterEvaluationExceptions": false,
+        "maxDeliveryCount": 10,
+        "status": "Active",
+        "enableBatchedOperations": false,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/CaptureAll/$Default')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic', 'CaptureAll')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "1=1",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/All/$Default')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic', 'All')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "1=1",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productagreement-events-topic/racqaz-productagreement-changedevents-sub/$Default')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic', 'racqaz-productagreement-changedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "1=1",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productquote-events-topic/racqaz-productquote-changedevents-sub/$Default')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productquote-events-topic', 'racqaz-productquote-changedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productquote-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "1=1",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/Sub-Apttus-InsuranceEvent/ApttusInsuranceEventSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic', 'Sub-Apttus-InsuranceEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType='GW_PC_NEWBUS' OR EventType='GW_PC_REWRITE' OR EventType='GW_PC_RENEW' OR EventType='GW_PC_REINSTATE' OR EventType='GW_PC_POLADJ' OR EventType='GW_PC_CANCEL'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-finance-receiptmanagement-topic/Sub-Apttus/ApttusSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-finance-receiptmanagement-topic', 'Sub-Apttus')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-finance-receiptmanagement-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "PaymentSource='BPAY' OR PaymentSource='FZ INS' OR PaymentSource='FZ Group' OR PaymentSource='AusPost'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/racqaz-apttus-assetchangedevents-sub/AssestSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic', 'racqaz-apttus-assetchangedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType='Asset' AND (EventStatus='Pending Payment' OR EventStatus='Renewal Produced' OR EventStatus='Reminder Produced' OR EventStatus='Activated' OR EventStatus='Cancelled' OR EventStatus='Lapsed' OR EventStatus='Expired')",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/racqaz-insurancepolicypayment-changedevents-sub/BillingCenterSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic', 'racqaz-insurancepolicypayment-changedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "PrnSubString = '03'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-CHR-PublishPartyUpdateEvent/CHRSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic', 'Sub-CHR-PublishPartyUpdateEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "CHR='true'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/racqaz-ins-claims-paymentsmgmt-changedevents-sub/ClaimCenterSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic', 'racqaz-ins-claims-paymentsmgmt-changedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "PrnSubString = '23'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/Sub-D365-QuoteEvent/D365InsuranceEventSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic', 'Sub-D365-QuoteEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType='GW_PC_QUOTE'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/Sub-D365-ProductPaymentEvent/D365SubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic', 'Sub-D365-ProductPaymentEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "1=1",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-DAX-PublishPartyUpdateEvent/DAXSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic', 'Sub-DAX-PublishPartyUpdateEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "DAXSupplier='true' OR DAXCustomer='true'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productinvoice-events-topic/racqaz-productinvoice-changedevents-sub/DAXSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productinvoice-events-topic', 'racqaz-productinvoice-changedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productinvoice-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventStatus = 'Paid'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-All-PublishPartyUpdateEvent/DefaultRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic', 'Sub-All-PublishPartyUpdateEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "CCT='true'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-membership-documentevent-topic/Sub-Membership-DocumentEvent/DOCSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-membership-documentevent-topic', 'Sub-Membership-DocumentEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-membership-documentevent-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "1=1",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/Sub-Apttus-DocumentEvent/DocumentSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic', 'Sub-Apttus-DocumentEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType='Document' AND EventStatus='New'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productagreement-events-topic/racqaz-asset-homeassistproduct-changedevents-sub/HomeAssistSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic', 'racqaz-asset-homeassistproduct-changedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventStatus != 'Pending Payment' AND ProductSubCategory = 'Home Assistance'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/Sub-D365-DocumentEvent/InsuranceEventsDocumentSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic', 'Sub-D365-DocumentEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType = 'DCTM_CS_POLICY_DOC_CREATE'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-PC-ProcessPartyEvents/InsuranceSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic', 'Sub-PC-ProcessPartyEvents')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "Insurance='true'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/racqaz-apttus-invoicechangedevents-sub/InvoiceSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic', 'racqaz-apttus-invoicechangedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType='Invoice' AND (EventStatus='Unpaid' OR EventStatus='Partially paid' OR EventStatus='Paid')",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-assistance-docevent-topic/Sub-Assistance-LSDocEvent/LifeStyleSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-assistance-docevent-topic', 'Sub-Assistance-LSDocEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-assistance-docevent-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "(ProductPillar='Assistance' AND ProductSubCategory ='LifeStyle') AND (EventStatus='New' AND (DocumentType= 'REM' OR DocumentType= 'RNW'))",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productagreement-events-topic/racqaz-asset-membershipproduct-changedevents-sub/MembershipEventsSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic', 'racqaz-asset-membershipproduct-changedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productagreement-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "1=1",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-MRM-PublishPartyUpdateEvent/MRMSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic', 'Sub-MRM-PublishPartyUpdateEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "MRM='true'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/racqaz-apttus-paymentchangedevents-sub/PaymentSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic', 'racqaz-apttus-paymentchangedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType='Payment' AND (EventStatus='Honoured' OR EventStatus='Dishonoured' OR EventStatus='Permanently Dishonoured')",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-insurance-insuranceevents-topic/Sub-D365-PaymentEvent/PaymentSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic', 'Sub-D365-PaymentEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-insurance-insuranceevents-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType = 'GW_PC_GL_POLICY_CANCEL' OR EventType = 'GW_PC_GL_POLICY_CHANGE' OR EventType = 'GW_PC_GL_POLICY_RENEW' OR EventType = 'GW_PC_GL_POLICY_SUBMISSION' OR EventType = 'GW_PC_GL_POLICY_REINSTATE' OR EventType = 'GW_PC_GL_POLICY_REWRITE'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/sub-pos-productpaymentevent/POSProductPaymentSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic', 'sub-pos-productpaymentevent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "PaymentSource = 'FZ' OR PaymentSource = 'POS'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productpayments-events-topic/Sub-Product-PaymentDocEvent/ProductPaymentDocEventsRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic', 'Sub-Product-PaymentDocEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productpayments-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "(PaymentSource = 'Direct Debit' or PaymentSource = 'FZ-DIRDEB') AND (PaymentStatus = 'Honoured' or PaymentStatus = 'Dishonoured' or PaymentStatus = 'Permanently Dishonoured')",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-party-publishpartyupdateeventtopic/Sub-Product-PublishPartyUpdateEvent/ProductSubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic', 'Sub-Product-PublishPartyUpdateEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-party-publishpartyupdateeventtopic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "Apttus='true'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-apttus-events-topic/racqaz-apttus-quotechangedevents-sub/QuoteSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic', 'racqaz-apttus-quotechangedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-apttus-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventType='Quote' AND EventStatus='Accepted'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-productinvoice-events-topic/racqaz-productinvoice-revrec-changedevents-sub/RevRecSubscriptionRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productinvoice-events-topic', 'racqaz-productinvoice-revrec-changedevents-sub')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-productinvoice-events-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "EventStatus = 'Paid'",
+          "compatibilityLevel": 20
+        }
+      }
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), '/racqaz-assistance-docevent-topic/Sub-Assistance-RSADocEvent/RSASubscriberRule')]",
+      "location": "Australia East",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-assistance-docevent-topic', 'Sub-Assistance-RSADocEvent')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'), 'racqaz-assistance-docevent-topic')]",
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('namespaces_RACQAZ_SB_qa_EIP_AE_name'))]"
+      ],
+      "properties": {
+        "action": {},
+        "filterType": "SqlFilter",
+        "sqlFilter": {
+          "sqlExpression": "(ProductPillar='Assistance' AND (ProductSubCategory ='Roadside Assistance' OR ProductSubCategory ='Roadside Assistance CMO' )) AND (EventStatus='New' AND (DocumentType= 'CON' OR DocumentType= 'REM' OR DocumentType= 'RNW'))",
+          "compatibilityLevel": 20
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "ApplicationArea": {
+    "Message": {
+      "Sender": {
+        "SystemId": "ESB",
+        "SystemComponentId": "RACQESB.FinancialServices.BankMemberManagement.Orchestrations.ProcessPartyProductUpdates",
+        "SystemReferenceId": "3"
+      },
+      "CreationDateTime": "2019-11-19T10:15:25"
+    },
+    "Interaction": {
+      "Originator": {
+        "SystemId": "Aperio",
+        "SystemComponentId": "QTMB",
+        "SystemReferenceId": "RACQ_BANK_PRODUCT_DATA_Organisation_TC12.csv"
+      },
+      "InteractionDateTime": "2019-11-19T10:15:25"
+    }
+  },
+  "DataArea": {
+    "MatchCriteria": {
+      "Party": {
+        "PartyType": "Person",
+        "PartyReferences": [
+          {
+            "SystemId": "QTMB",
+            "PartyId": "3456789"
+          }
+        ],
+        "Person": {
+          "PersonName": {
+            "FirstName": "Mike",
+            "LastName": "Smith"
+          },
+          "BirthDate": "1954-12-26"
+        },
+        "Membership": {
+          "MembershipCardNumber": "3083670057311528"
+        },
+        "Telephone": [
+          {
+            "TelephoneNumber": "0402118118"
+          }
+        ],
+        "Email": [
+          {
+            "EmailAddress": "mike@gmail.com"
+          }
+        ]
+      },
+      "Address": [
+        {
+          "UnitNumber": "1",
+          "LevelNumber": "",
+          "StreetNumber1": "55",
+          "StreetName": "Waterworks Rd",
+          "SuburbName": "Ashgrove",
+          "StateTerritory": "Qld",
+          "PostCode": "4060",
+          "Country": "Australia"
+        }
+      ]
+    }
+  }
+}

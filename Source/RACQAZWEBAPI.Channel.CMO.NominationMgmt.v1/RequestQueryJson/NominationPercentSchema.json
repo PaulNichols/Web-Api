@@ -1,0 +1,91 @@
+{
+  "ApplicationArea": {
+    "Message": {
+      "Sender": {
+        "SystemId": "string",
+        "SystemComponentId": "string",
+        "SystemReferenceId": "string"
+      },
+      "CreationDateTime": "string"
+    },
+    "Interaction": {
+      "Originator": {
+        "SystemId": "string",
+        "SystemComponentId": "string",
+        "SystemReferenceId": "string"
+      },
+      "InteractionDateTime": "string"
+    }
+  },
+  "DataArea": {
+    "Nomination": {
+      "Identifier": "string",
+      "Batch_No": "string",
+      "Batch_Type": "string",
+      "ProgramCode": "string",
+      "ClientCode": "string",
+      "Trans_Type": "string",
+      "NominationDate": "string",
+      "VIN": "string",
+      "Description": "string",
+      "Make": "string",
+      "Model": "string",
+      "BodyType": "string",
+      "Series": "string",
+      "Colour": "string",
+      "YearOfRelease": "string",
+      "Rego": "string",
+      "OwnerType": "string",
+      "Title": "string",
+      "FirstName": "string",
+      "Surname": "string",
+      "DOB": "string",
+      "MobilePhone": "string",
+      "Email": "string",
+      "Privacy": "string",
+      "Consent": "string",
+      "StateofMembership": "string",
+      "ExistingClubMembership": "string",
+      "AddressLine1": "string",
+      "City": "string",
+      "State": "string",
+      "Postcode": "string",
+      "NominationID": "string",
+      "PlanCode": "string",
+      "ClubPlan": "string",
+      "ClubPlanCode": "string"
+    }
+  },
+  "Result": {
+    "Message": {
+      "Errors": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ],
+      "Warnings": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ],
+      "InformationList": [
+        {
+          "TimeStamp": "string",
+          "System": "string",
+          "Code": "string",
+          "Description": "string",
+          "ExtraDetail": "string"
+        }
+      ]
+    },
+    "ResultCode": "string"
+  }
+}

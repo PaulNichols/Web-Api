@@ -1,0 +1,144 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "keyVaultName": {
+      "type": "string"
+    },
+    "PartyMatchManagementClientAPIMKey": {
+      "type": "string"
+    },
+    "PartyMatchManagementClientAPIMKeyValue": {
+      "type": "string"
+    },
+    "PartyMatchManagementClientSecretKVSecretName": {
+      "type": "string"
+    },
+    "PartyMatchManagementClientSecretKVSecretValue": {
+      "type": "string"
+    },
+    "PartyManagementClientSecretKVSecretName": {
+      "type": "string"
+    },
+    "PartyManagementClientSecretValue": {
+      "type": "string"
+    },
+    "QuoteManagementClientAPIMKey": {
+      "type": "string"
+    },
+    "QuoteManagementClientAPIMKeyValue": {
+      "type": "string"
+    },
+    "QuoteManagementClientSecretKVSecretName": {
+      "type": "string"
+    },
+    "QuoteManagementClientSecretValue": {
+      "type": "string"
+    },
+    "CartManagementClientAPIMKey": {
+      "type": "string"
+    },
+    "CartManagementClientAPIMKeyValue": {
+      "type": "string"
+    },
+    "CartManagementClientSecretKVSecretName": {
+      "type": "string"
+    },
+    "CartManagementClientSecretValue": {
+      "type": "string"
+    },
+    "CmoNominationsManagementClientSecretKVSecretName": {
+      "type": "string"
+    },
+    "CmoNominationsManagementClientSecretValue": {
+      "type": "string"
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "name": "[concat(parameters('keyVaultName'), '/', parameters('PartyMatchManagementClientAPIMKey'))]",
+      "apiVersion": "2015-06-01",
+      "properties": {
+        "contentType": "text/plain",
+        "value": "[parameters('PartyMatchManagementClientAPIMKeyValue')]"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "name": "[concat(parameters('keyVaultName'), '/', parameters('CmoNominationsManagementClientSecretKVSecretName'))]",
+      "apiVersion": "2015-06-01",
+      "properties": {
+        "contentType": "text/plain",
+        "value": "[parameters('CmoNominationsManagementClientSecretValue')]"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "name": "[concat(parameters('keyVaultName'), '/', parameters('PartyMatchManagementClientSecretKVSecretName'))]",
+      "apiVersion": "2015-06-01",
+      "properties": {
+        "contentType": "text/plain",
+        "value": "[parameters('PartyMatchManagementClientSecretKVSecretValue')]"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "name": "[concat(parameters('keyVaultName'), '/', parameters('QuoteManagementClientAPIMKey'))]",
+      "apiVersion": "2015-06-01",
+      "properties": {
+        "contentType": "text/plain",
+        "value": "[parameters('QuoteManagementClientAPIMKeyValue')]"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "name": "[concat(parameters('keyVaultName'), '/', parameters('CartManagementClientAPIMKey'))]",
+      "apiVersion": "2015-06-01",
+      "properties": {
+        "contentType": "text/plain",
+        "value": "[parameters('CartManagementClientAPIMKeyValue')]"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "name": "[concat(parameters('keyVaultName'), '/', parameters('QuoteManagementClientSecretKVSecretName'))]",
+      "apiVersion": "2015-06-01",
+      "properties": {
+        "contentType": "text/plain",
+        "value": "[parameters('QuoteManagementClientSecretValue')]"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "name": "[concat(parameters('keyVaultName'), '/', parameters('CartManagementClientSecretKVSecretName'))]",
+      "apiVersion": "2015-06-01",
+      "properties": {
+        "contentType": "text/plain",
+        "value": "[parameters('CartManagementClientSecretValue')]"
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "name": "[concat(parameters('keyVaultName'), '/', parameters('PartyManagementClientSecretKVSecretName'))]",
+      "apiVersion": "2015-06-01",
+      "properties": {
+        "contentType": "text/plain",
+        "value": "[parameters('PartyManagementClientSecretValue')]"
+      },
+      "dependsOn": []
+    }
+
+  ],
+  "outputs": {
+  }
+}

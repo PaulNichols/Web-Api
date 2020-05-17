@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TestSample\**" />
+    <EmbeddedResource Remove="TestSample\**" />
+    <None Remove="TestSample\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.11.0" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Moq" Version="4.13.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.analyzers" Version="0.10.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    <PackageReference Include="coverlet.collector" Version="1.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.csproj" />
+  </ItemGroup>
+</Project>

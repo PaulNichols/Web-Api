@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{57BAE1BC-D418-4A95-B292-C0E9324B0A54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FBD2504D-975E-4B64-B938-7DDD19C7DB9D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{60E0F62E-605A-48F2-BFCA-C63B45AB6335}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", "{21430F03-C54F-4306-9F47-BE4D91256369}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "RACQAZ.Channel.CMO.NominationMgmt.v1.AppService", "Deployment\RACQAZ.Channel.CMO.NominationMgmt.v1.AppService\RACQAZ.Channel.CMO.NominationMgmt.v1.AppService.deployproj", "{834D2837-2367-4A98-9D79-45C919745505}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "RACQAZ.Channel.CMO.NominationMgmt.v1.KeyVault", "Deployment\RACQAZ.Channel.CMO.NominationMgmt.v1.KeyVault\RACQAZ.Channel.CMO.NominationMgmt.v1.KeyVault.deployproj", "{12E2045F-F9DB-4C08-AEE0-8B4379DFE0F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1", "Source\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.csproj", "{FDCD2943-22CD-4089-8DA7-56D8B60ECD7B}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "RACQAZ.Channel.CMO.NominationMgmt.v1.ServiceBus", "Deployment\RACQAZ.Channel.CMO.NominationMgmt.v1.ServiceBus\RACQAZ.Channel.CMO.NominationMgmt.v1.ServiceBus.deployproj", "{77410D9D-9626-4271-A476-171C62E61CC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2EABA747-EB06-4F2A-A67D-B7D31033F3B5}"
+	ProjectSection(SolutionItems) = preProject
+		Tests\QA - External - RACQAZAPI.Channel.CMO.NominationMgmt.v1.postman_collection.json = Tests\QA - External - RACQAZAPI.Channel.CMO.NominationMgmt.v1.postman_collection.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.IntegrationTests", "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.IntegrationTests", "{6053CF2F-AA15-4E59-9B5E-15B7EB4487DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests", "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests", "{C758FC62-683E-4949-93BD-0C3382FB24ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests", "Tests\RACQAZ.Channel.CMO.NominationMgmt.UnitTests\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.UnitTests.csproj", "{13A90A46-C8A9-4F3D-882B-FAD7B008537D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.IntegrationTests", "Tests\RACQAZ.Channel.CMO.NominationMgmt.IntegrationTests\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.IntegrationTests.csproj", "{8B28F71A-01A5-4025-9E9B-3291AFCEE485}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{834D2837-2367-4A98-9D79-45C919745505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834D2837-2367-4A98-9D79-45C919745505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834D2837-2367-4A98-9D79-45C919745505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834D2837-2367-4A98-9D79-45C919745505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E2045F-F9DB-4C08-AEE0-8B4379DFE0F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E2045F-F9DB-4C08-AEE0-8B4379DFE0F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E2045F-F9DB-4C08-AEE0-8B4379DFE0F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E2045F-F9DB-4C08-AEE0-8B4379DFE0F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDCD2943-22CD-4089-8DA7-56D8B60ECD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDCD2943-22CD-4089-8DA7-56D8B60ECD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDCD2943-22CD-4089-8DA7-56D8B60ECD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDCD2943-22CD-4089-8DA7-56D8B60ECD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77410D9D-9626-4271-A476-171C62E61CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77410D9D-9626-4271-A476-171C62E61CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77410D9D-9626-4271-A476-171C62E61CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77410D9D-9626-4271-A476-171C62E61CC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A90A46-C8A9-4F3D-882B-FAD7B008537D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A90A46-C8A9-4F3D-882B-FAD7B008537D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A90A46-C8A9-4F3D-882B-FAD7B008537D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A90A46-C8A9-4F3D-882B-FAD7B008537D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B28F71A-01A5-4025-9E9B-3291AFCEE485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B28F71A-01A5-4025-9E9B-3291AFCEE485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B28F71A-01A5-4025-9E9B-3291AFCEE485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B28F71A-01A5-4025-9E9B-3291AFCEE485}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{834D2837-2367-4A98-9D79-45C919745505} = {21430F03-C54F-4306-9F47-BE4D91256369}
+		{12E2045F-F9DB-4C08-AEE0-8B4379DFE0F9} = {21430F03-C54F-4306-9F47-BE4D91256369}
+		{FDCD2943-22CD-4089-8DA7-56D8B60ECD7B} = {57BAE1BC-D418-4A95-B292-C0E9324B0A54}
+		{77410D9D-9626-4271-A476-171C62E61CC1} = {21430F03-C54F-4306-9F47-BE4D91256369}
+		{6053CF2F-AA15-4E59-9B5E-15B7EB4487DA} = {2EABA747-EB06-4F2A-A67D-B7D31033F3B5}
+		{C758FC62-683E-4949-93BD-0C3382FB24ED} = {2EABA747-EB06-4F2A-A67D-B7D31033F3B5}
+		{13A90A46-C8A9-4F3D-882B-FAD7B008537D} = {C758FC62-683E-4949-93BD-0C3382FB24ED}
+		{8B28F71A-01A5-4025-9E9B-3291AFCEE485} = {6053CF2F-AA15-4E59-9B5E-15B7EB4487DA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E464B40-8B3D-427D-BA61-053DB0B94967}
+	EndGlobalSection
+EndGlobal

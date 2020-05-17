@@ -1,0 +1,2018 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1</name>
+    </assembly>
+    <members>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.ApplicationBuilderExtensions.UseStaticFilesWithCacheControl(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                Uses the static files middleware to serve static files. Also adds the Cache-Control and Pragma HTTP
+                headers. The cache duration is controlled from configuration.
+                See http://andrewlock.net/adding-cache-control-headers-to-static-files-in-asp-net-core/.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.ApplicationBuilderExtensions.UseCustomSerilogRequestLogging(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                Uses custom serilog request logging. Adds additional properties to each log.
+                See https://github.com/serilog/serilog-aspnetcore.
+            </summary>
+        </member>
+        <member name="T:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.CustomServiceCollectionExtensions">
+            <summary>
+                <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> extension methods which extend ASP.NET Core services.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.CustomServiceCollectionExtensions.AddCustomCaching(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configures caching for the application. Registers the <see cref="T:Microsoft.Extensions.Caching.Distributed.IDistributedCache" /> and
+                <see cref="T:Microsoft.Extensions.Caching.Memory.IMemoryCache" /> types with the services collection or IoC container. The
+                <see cref="T:Microsoft.Extensions.Caching.Distributed.IDistributedCache" /> is intended to be used in cloud hosted scenarios where there is a shared
+                cache, which is shared between multiple instances of the application. Use the <see cref="T:Microsoft.Extensions.Caching.Memory.IMemoryCache" />
+                otherwise.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.CustomServiceCollectionExtensions.AddCustomCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Add cross-origin resource sharing (CORS) services and configures named CORS policies. See
+                https://docs.asp.net/en/latest/security/cors.html
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.CustomServiceCollectionExtensions.AddCustomOptions(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                Configures the settings by binding the contents of the appsettings.json file to the specified Plain Old CLR
+                Objects (POCO) and adding <see cref="T:Microsoft.Extensions.Options.IOptions`1" /> objects to the services collection.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.CustomServiceCollectionExtensions.AddCustomRouting(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Add custom routing settings which determines how URL's are generated.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.CustomServiceCollectionExtensions.AddCustomStrictTransportSecurity(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Adds the Strict-Transport-Security HTTP header to responses. This HTTP header is only relevant if you are
+                using TLS. It ensures that content is loaded over HTTPS and refuses to connect in case of certificate
+                errors and warnings.
+                See https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security and
+                http://www.troyhunt.com/2015/06/understanding-http-strict-transport.html
+                Note: Including subdomains and a minimum maxage of 18 weeks is required for preloading.
+                Note: You can refer to the following article to clear the HSTS cache in your browser:
+                http://classically.me/blogs/how-clear-hsts-settings-major-browsers
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.CustomServiceCollectionExtensions.AddCustomResponseCompression(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                Adds dynamic response compression to enable GZIP compression of responses. This is turned off for HTTPS
+                requests by default to avoid the BREACH security vulnerability.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.CustomServiceCollectionExtensions.AddCustomSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Adds Swagger services and configures the Swagger services.
+            </summary>
+        </member>
+        <member name="T:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.ProjectServiceCollectionExtensions">
+            <summary>
+                <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> extension methods add project services.
+            </summary>
+            <remarks>
+                AddSingleton - Only one instance is ever created and returned.
+                AddScoped - A new instance is created and returned for each request/response cycle.
+                AddTransient - A new instance is created and returned each time.
+            </remarks>
+        </member>
+        <member name="T:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.Startup">
+            <summary>
+                The main start-up class for the application.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+                Initializes a new instance of the <see cref="T:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.Startup" /> class.
+            </summary>
+            <param name="configuration">
+                The application configuration, where key value pair settings are stored. See
+                http://docs.asp.net/en/latest/fundamentals/configuration.html
+            </param>
+            <param name="webHostEnvironment">
+                The environment the application is running under. This can be Development,
+                Staging or Production by default. See http://docs.asp.net/en/latest/fundamentals/environments.html
+            </param>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configures the services to add to the ASP.NET Core Injection of Control (IoC) container. This method gets
+                called by the ASP.NET runtime. See
+                http://blogs.msdn.com/b/webdev/archive/2014/06/17/dependency-injection-in-asp-net-vnext.aspx
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                Configures the application and HTTP request pipeline. Configure is called after ConfigureServices is
+                called by the ASP.NET runtime.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.MvcBuilderExtensions.AddCustomJsonOptions(Microsoft.Extensions.DependencyInjection.IMvcBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+                Adds customized JSON serializer settings.
+            </summary>
+        </member>
+        <member name="M:RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.MvcBuilderExtensions.GetJsonPatchInputFormatter">
+            <summary>
+                Gets the JSON patch input formatter. The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1" /> does not support the new
+                System.Text.Json API's for de-serialization. You must use Newtonsoft.Json instead. See
+                https://docs.microsoft.com/en-us/aspnet/core/web-api/jsonpatch?view=aspnetcore-3.0#jsonpatch-addnewtonsoftjson-and-systemtextjson
+            </summary>
+            <returns>The JSON patch input formatter using Newtonsoft.Json.</returns>
+        </member>
+        <member name="M:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Controllers.NominationsController.ProcessCMONominations(RACQAZ.Channel.CMO.NominationMgmt.v1.API.Commands.IProcessCMONominationsCommand,RACQAZ.Channel.CMO.NominationMgmt.v1.API.Nominations.Model.Nominations)">
+             <summary>
+              WebAPI :Convert CMO nominations sent by Logic App to finalized Apttus Quote for Apttus parties only
+            </summary>
+             <param name="command"></param>
+             <param name="request"></param>
+             ///This business service receives a set of JSON data for CMO nominations. It parses through each nomination as follows:
+            The nomination is party-matched, with a new party created if none exists
+            The product is added to Apttus
+            Nominations added to Apttus are marked as 'Success'
+            If a nomination enters the 'Error' status, each nomination is assessed against validation criteria to determine whether it should move into 'Rejected' status
+            Each nomination is returned to the caller with a status of Success, Error, or Rejected
+             <returns></returns>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.OperationFilters.ApiVersionOperationFilter">
+            <summary>
+                An Open API operation filter used to document the implicit API version parameter.
+            </summary>
+            <remarks>
+                This <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter" /> is only required due to bugs in the <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator" />.
+                Once they are fixed and published, this class can be removed. See:
+                - https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/412
+                - https://github.com/domaindrivendev/Swashbuckle.AspNetCore/pull/413
+            </remarks>
+        </member>
+        <member name="M:RACQAZ.Channel.CMO.NominationMgmt.v1.API.OperationFilters.ApiVersionOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Options.ApplicationOptions">
+            <summary>
+                All options for the application.
+            </summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Options.CacheProfileOptions">
+            <summary>
+                The caching options for the application.
+            </summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Options.CompressionOptions">
+            <summary>
+                The dynamic response compression options for the application.
+            </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Options.CompressionOptions.MimeTypes">
+            <summary>
+                Gets or sets a list of MIME types to be compressed in addition to the default set used by ASP.NET Core.
+            </summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Options.ServiceBusAuthOptions">
+            <summary>
+                The dynamic response compression options for the application.
+            </summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Properties.Resources.Columns">
+             <summary>
+               Looks up a localized string similar to cpq_AssetLineItem.AssetNumber,
+            cpq_AssetLineItem.AssetStatus,
+            cpq_AssetLineItem.CancellationComments,
+            cpq_AssetLineItem.CancelledDate,
+            cpq_AssetLineItem.Description,
+            cpq_AssetLineItem.StartDate,
+            cpq_AssetLineItem.EndDate,
+            cpq_AssetLineItem.ext_PRN,
+            cpq_AssetLineItem.ext_MembershipTC,
+            cpq_AssetLineItem.ProductId.ProductCode,
+            cpq_AssetLineItem.ext_CTPcertificatenumber,
+            cpq_AssetLineItem.ext_AssetStatus,
+            cpq_AssetLineItem.Id,
+            cpq_AssetLineItem.Name,
+            cpq_AssetLineItem.AccountId,
+            cpq_AssetAttribut [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Properties.Resources.HttpErrorMessage">
+            <summary>
+              Looks up a localized string similar to The HTTP status code of the response was not expected..
+            </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Properties.Resources.HttpTimeoutErrorMessage">
+            <summary>
+              Looks up a localized string similar to A timeout error occurred.
+            </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Properties.Resources.HttpUnavaliableErrorMessage">
+            <summary>
+              Looks up a localized string similar to Service Unavailable.
+            </summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.DataArea">
+            <summary>Payload of the request</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.DataArea.Credentials">
+            <summary>Security credentials</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Interaction.InteractionDateTime">
+            <summary>The date time stamp of when the interaction began</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Message.CreationDateTime">
+            <summary>The date time stamp that the Sender created this message</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Party2.Type">
+            <summary>Type of party - person or organisation</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.IdentifierIdentificationType">
+            <summary>A number or code assigned to a party by an organisation, establishment or agency in order to uniquely identify that party. The possible values are not standardized or codified, as the data is dependent on the
+            issuer and type of identifier.
+            Examples:
+            A businesses Australian business number (ABN): 85 087 326 690
+            An individuals Medicare card number (MCN): 2345 56789 8</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.CommunicationType">
+            <summary>This describes the communication channels as well as the communication mechanism they use.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.CommunicationType.DeliverySubscription">
+            <summary>This is the different types of delivery-channels the party can subscribe to. Example: DeliveryChannelGlobal, DeliveryChannelAGM, DeliveryChannelMembershipCard, DeliveryChannelNotices, DeliveryChannelTRA. AGM=Annual General Meeting. TRA=The Road Ahead</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.CommunicationType.CommunicationPreference">
+            <summary>This describes the method to be used to communicate with the party. IMPORTANT: Default is DigitalEmail and 'None' only applies to DeliveryChannelTRA.</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType">
+            <summary>Addresses - postal, physical, etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.Usage">
+            <summary>The role or use of the address in relation to the client. (Can be an Australian address whilst the client is overseas). Examples include:
+            Primary address-The property address normally used by the client. (These
+            addresses desirably should have been assigned by a Council)
+            NOTE: Where this is the principal place of residence of the client the residential
+            code should be used.
+            Secondary address-The address of an additional property attached to the client.
+            Residential-The address of the principal place of residence for the client.
+            Temporary accommodation-The address where the client is resident for a
+            temporary period.
+            Business-The address of the principal place of business for the client.
+            Overseas address-The address used by the client when overseas.
+            Delivery address-The address used for goods delivery purposes.
+            Postal/correspondence-The address used by the client for receipt of
+            correspondence.
+            Where the address purpose is not stated or unknown a null entry will be recorded.
+            An address may have more than one purpose.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.CountryName">
+            <summary>A code indicating the country, territory, colony or dependency for an address. The recommended Code description is the list of Country Name Codes in ISO 3166.
+            Other Code description may be used though should be accompanied by metadata to
+            perform the conversion from the abbreviation to the full description as agreed by
+            the involved parties.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.PostCode">
+            <summary>The Australian numeric descriptor for a postal delivery area, aligned with locality, suburb or place</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.StateTerritory">
+            <summary>The State or Territory code of the address</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.Line1">
+            <summary>Free text address line 1. Unstructured address may be repeated up to 4 lines (NOTE: where this is an
+            overseas address the country name code becomes mandatory). This is also used for overseas addresses. NOTE: Where there is a need to transfer an Australian address that does not
+            conform with the commonly used address format, the unstructured address lines
+            may be used. These data elements should not be used except when it is impossible
+            to use of the other more structured address data elements.
+            While 4 lines have been provided for unstructured Australian address details, not all
+            lines need to be used.
+            Unstructured address lines, when used, should contain the entire address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.LocalityName">
+            <summary>The name of the locality/suburb of the address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.SiteName">
+            <summary>RACQ - Extra information eg. building name, property name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.StreetNumber1">
+            <summary>Start of Range Number of the street, e.g.21-25 Archer Street, where streetNumber1 is 21</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.StreetName">
+            <summary>Start of Range Number of the street, e.g.21-25 Archer Street, where streetName is Archer Street</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.PostalDeliveryType">
+            <summary>Identification for the channel of postal delivery. Usage: Used where mail is to be delivered to a box, bag or agent for pick-up by the
+            intended recipient or to the rural mail box number where no other address exists.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.PostalDeliveryNumber">
+            <summary>PO Box Number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.UnitNumber">
+            <summary>Mrs Joyce Citizen	 
+            Apartment 7 	(Sub dwelling unit number is 7)
+            Level 3	
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.UnitType">
+            <summary>Mrs Joyce Citizen	
+            Apartment 7 	(Sub-dwelling unit type code is APT)
+            Level 3	
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.BuildingLevel">
+            <summary>Mrs Joyce Citizen	
+            Apartment 7 
+            Level 3	(BuildingLevel is 3)
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.InternationalPostCodeZipCode">
+            <summary>RACQ - To support capturing of international addresses</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.InternationalStateTerritoryRegion">
+            <summary>RACQ - To support capturing of international addresses</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.DeliveryPoint">
+            <summary>A unique number created by Australia Post for an address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.Addressee">
+            <summary>RACQ - Mailing name for an address</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.ClientCurrency">
+            <summary>Details the relationship between the client and the associated address at the point in time of interchange. The examples provided list the recommended values. Use of additional or
+            alternative Domain values should be accompanied by metadata as agreed by the
+            involved parties.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.AddressType.UsagePeriod">
+            <summary>Usage Period of the address. Start datetime, end datetime</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedOrganisationType">
+            <summary>The party being an organisation, details of the organisation</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedOrganisationType.Type">
+            <summary>The Legal or business Structure of an organisation</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Credentials.UserName">
+            <summary>The user initiating the process</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Credentials.SourceSystem">
+            <summary>The external system initiating the process</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Originator">
+            <summary>Identifies the system and component where the interaction began</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Originator.SystemId">
+            <summary>The identifier of the system that the interaction originated from - e.g. MARS, MRM</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Originator.SystemComponentId">
+            <summary>Optional. The subcomponent within the system that the interaction originated from - e.g. a program or component name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Originator.SystemReferenceId">
+            <summary>The unique identifier about this interaction</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.IdentifierIdentification">
+            <summary>A number or code assigned to a party by an organisation, establishment or agency in order to uniquely identify that party. The possible values are not standardized or codified, as the data is dependent on the
+            issuer and type of identifier.
+            Examples:
+            A businesses Australian business number (ABN): 85 087 326 690
+            An individuals Medicare card number (MCN): 2345 56789 8</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPerson">
+            <summary>The party being a person, details of the person</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPerson.BirthDate">
+            <summary>The date when a person was born</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPerson.IdentifierIdentification">
+            <summary>Identification details of the person - only one</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPerson.Gender">
+            <summary>0-Not Stated,1-Male,2-Female</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPerson.RelationshipStatus">
+            <summary>A person's current relationship status in terms of a couple relationship or, for those not in a couple relationship, the existence of a current or previous registered marriage. \n(1-Never married, 2-Widowed, 4-Separated, 5-Married (registered and de facto), 6-De-Facto, 7-Partner)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPerson.PersonStatusIndicator">
+            <summary>RACQ - Used to indicate the status of a person eg. Alive, Deceased</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPerson.LoyaltyLevel">
+            <summary>RACQ member loyalty level : Blue, Bronze, Silver, Gold, Gold50</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.ContactInternet">
+            <summary>Internet contact details of the person</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.ContactInternet.EmailAddress">
+            <summary>An electronic mail internet contact address for a party</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.ContactInternet.Usage">
+            <summary>Use types (01-Personal, 02-Business, 03-Mobile &amp; 08-Other)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.ContactTelephone.Usage">
+            <summary>Use types (01-Personal, 02-Business, 03-Mobile &amp; 08-Other)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.ContactTelephone.StandardFunctionality">
+            <summary>Well known communication features available through the telephone. A telephone may have multiple standard features. 01-Voice,02-FAX,03-SMS,04-MMS,08-Other,09-Unknown</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.ContactTelephone.TelephoneNumber">
+            <summary>The minimal number that is associated to a unique provision of telephone service as accessed locally through a standard dialling access. The field length is sufficient to enable an extension to be included at the end of a telephone number.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.ContactTelephone.SilentNumberFlag">
+            <summary>RACQ - Indicates whether the phone number is unlisted/silent</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address">
+            <summary>Addresses - postal, physical, etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.Usage">
+            <summary>The role or use of the address in relation to the client. (Can be an Australian address whilst the client is overseas). Examples include:
+            Primary address-The property address normally used by the client. (These
+            addresses desirably should have been assigned by a Council)
+            NOTE: Where this is the principal place of residence of the client the residential
+            code should be used.
+            Secondary address-The address of an additional property attached to the client.
+            Residential-The address of the principal place of residence for the client.
+            Temporary accommodation-The address where the client is resident for a
+            temporary period.
+            Business-The address of the principal place of business for the client.
+            Overseas address-The address used by the client when overseas.
+            Delivery address-The address used for goods delivery purposes.
+            Postal/correspondence-The address used by the client for receipt of
+            correspondence.
+            Where the address purpose is not stated or unknown a null entry will be recorded.
+            An address may have more than one purpose.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.CountryName">
+            <summary>A code indicating the country, territory, colony or dependency for an address. The recommended Code description is the list of Country Name Codes in ISO 3166.
+            Other Code description may be used though should be accompanied by metadata to
+            perform the conversion from the abbreviation to the full description as agreed by
+            the involved parties.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.PostCode">
+            <summary>The Australian numeric descriptor for a postal delivery area, aligned with locality, suburb or place</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.StateTerritory">
+            <summary>The State or Territory code of the address</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.Line1">
+            <summary>Free text address line 1. Unstructured address may be repeated up to 4 lines (NOTE: where this is an
+            overseas address the country name code becomes mandatory). This is also used for overseas addresses. NOTE: Where there is a need to transfer an Australian address that does not
+            conform with the commonly used address format, the unstructured address lines
+            may be used. These data elements should not be used except when it is impossible
+            to use of the other more structured address data elements.
+            While 4 lines have been provided for unstructured Australian address details, not all
+            lines need to be used.
+            Unstructured address lines, when used, should contain the entire address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.LocalityName">
+            <summary>The name of the locality/suburb of the address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.SiteName">
+            <summary>RACQ - Extra information eg. building name, property name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.StreetNumber1">
+            <summary>Start of Range Number of the street, e.g.21-25 Archer Street, where streetNumber1 is 21</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.StreetName">
+            <summary>Start of Range Number of the street, e.g.21-25 Archer Street, where streetName is Archer Street</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.PostalDeliveryType">
+            <summary>Identification for the channel of postal delivery. Usage: Used where mail is to be delivered to a box, bag or agent for pick-up by the
+            intended recipient or to the rural mail box number where no other address exists.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.PostalDeliveryNumber">
+            <summary>PO Box Number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.UnitNumber">
+            <summary>Mrs Joyce Citizen	 
+            Apartment 7 	(Sub dwelling unit number is 7)
+            Level 3	
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.UnitType">
+            <summary>Mrs Joyce Citizen	
+            Apartment 7 	(Sub-dwelling unit type code is APT)
+            Level 3	
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.BuildingLevel">
+            <summary>Mrs Joyce Citizen	
+            Apartment 7 
+            Level 3	(BuildingLevel is 3)
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.InternationalPostCodeZipCode">
+            <summary>RACQ - To support capturing of international addresses</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.InternationalStateTerritoryRegion">
+            <summary>RACQ - To support capturing of international addresses</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.DeliveryPoint">
+            <summary>A unique number created by Australia Post for an address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.Addressee">
+            <summary>RACQ - Mailing name for an address</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.ClientCurrency">
+            <summary>Details the relationship between the client and the associated address at the point in time of interchange. The examples provided list the recommended values. Use of additional or
+            alternative Domain values should be accompanied by metadata as agreed by the
+            involved parties.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Address.UsagePeriod">
+            <summary>Usage Period of the address. Start datetime, end datetime</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPersonName.FamilyName">
+            <summary>A person's name that is either:
+            -	The hereditary or tribal surname of a person's family; 
+            -	Acquired by a person in accordance with a due process defined in a State or Territory Act relating to the registration of births, deaths, marriages and changes of name and sex, and for related purposes, such as the ACT Births, Deaths and Marriages Registration or; 
+            -	Any other name distinguished from a person given name.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPersonName.NameTitle">
+            <summary>A prefix to a person name. An honorific form of address commencing a name, used when addressing a person by name, whether by mail, phone or in person. This data element may be repeated where more than one name title is associated with a person, eg. Honourable Doctor (Hon Dr).</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPersonName.UsageType">
+            <summary>The code for the usage type of a person family name and given name that enables to
+            differentiate between the roles of each recorded or interchanged person's name. This data element can be used where the person offers more than one family name
+            and more than one given name.
+            Also known as (or Aliases)-This data element denotes any other name that a
+            person is also known by, or has been known by in the past. This includes misspelt
+            names or name variations that are to be retained as they have been used to identify
+            this person. More than one alias name may be recorded for a person.
+            Maiden name-The family name of any party prior to being changed at marriage.
+            Traditionally the term 'Maiden Name' means the family name of a woman before
+            she is married, this was specifically due to the tradition of a woman taking the mans
+            family name at the time of marriage. Now many couples are using hybrid or merged
+            names to reflect the heritage of both parties in the marriage, thus both parties are
+            changing their names at marriage. This should be reflected in the usage of the term
+            'Maiden Name' as it should now be used for both sexes.
+            The usage of Maiden name should remain consistent for same sex couples, where
+            one or both of the parties change their name at Civil Union.
+            New born-This data element is reserved for the identification of unnamed newborn
+            babies.
+            Preferred name-This data element is to be associated the name by which the
+            person chooses to be identified. Start date and end date can be used in conjunction with this data element (see ValidityPeriod element) to
+            determine when the specific name usage type commenced or ceased to be effective.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.SpecifiedPersonName.FullName">
+            <summary>RACQ - currently being used to capture Mailing Name</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Communication">
+            <summary>This describes the communication channels as well as the communication mechanism they use.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Communication.DeliverySubscription">
+            <summary>This is the different types of delivery-channels the party can subscribe to. Example: DeliveryChannelGlobal, DeliveryChannelAGM, DeliveryChannelMembershipCard, DeliveryChannelNotices, DeliveryChannelTRA. AGM=Annual General Meeting. TRA=The Road Ahead</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.Communication.CommunicationPreference">
+            <summary>This describes the method to be used to communicate with the party. IMPORTANT: Default is DigitalEmail and 'None' only applies to DeliveryChannelTRA.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.UsagePeriod.Start">
+            <summary>Start Date</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.GivenName">
+            <summary>A person's name that is either:
+            -	Assigned by a person parents shortly after birth or adoption or other cultural ceremony; 
+            -	Acquired by a person in accordance with a due process defined in a State or Territory Act relating to the registration of births, deaths, marriages and changes of name and sex, and for related purposes, such as the ACT Births, Deaths and Marriages Registration Act or; 
+            -	Attained by a person within the family group or by which that person is socially identified. </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Request.GivenName.SequenceNumber">
+            <summary>Given Name sequence number. Valid values: 1 to 9. First Given name sequence number: 1, second given name sequence number: 2, etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Response.IdentifierIdentificationType">
+            <summary>A number or code assigned to a party by an organisation, establishment or agency in order to uniquely identify that party. The possible values are not standardized or codified, as the data is dependent on the
+            issuer and type of identifier.
+            Examples:
+            A businesses Australian business number (ABN): 85 087 326 690
+            An individuals Medicare card number (MCN): 2345 56789 8</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.PartyManagement.Response.PartyResponseType">
+            <summary>Party details</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.CartManagement.CartResponse.ApttusCartResponse">
+            <summary>JSON Schema generated by XMLSpy v2019 rel. 3 sp1 (x64) (http://www.altova.com)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.CartManagement.CartResponse.InvoiceLineItemType.Id">
+            <summary>InvoiceLineItemId</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.CartManagement.CartResponse.InvoiceLineItemType.Name">
+            <summary>InvoiceLineItemName</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.CartManagement.CartResponse.InvoiceId.Id">
+            <summary>Invoice Id</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.CartManagement.CartResponse.InvoiceId.Name">
+            <summary>Invoice Name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.CartManagement.Request.CreateCartRequest.QuoteId">
+            <summary>
+            APTTUS Quote Id GUID returned after Create Quote Service is executed
+            </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.CartManagement.Request.CreateCartRequest.CartId">
+            <summary>
+            APTTUS Cart Id GUID returned after Create Quote Service is executed
+            </summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Message.CreationDateTime">
+            <summary>The date time stamp that the Sender created this message</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PricingType.Price">
+            <summary>The price for that period</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PricingType.PriceTypeCode">
+            <summary>The type of prices eg. FlatPrice, NetPrice, TierPrice, BasePrice etc.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AdjustmentType.AdjustmentAmount">
+            <summary>The amount of the adjustment to be applied</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AdjustmentType.AdjustmentApplicableIndicator">
+            <summary>Indicates whether the adjustment is applicable</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AdjustmentType.AdjustmentPercentage">
+            <summary>The percentage of the adjustment to be applied</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AdjustmentType.AdjustmentTypeCode">
+            <summary>The type of adjustment eg. BundleDiscount, PremiumIncrease, PremiumDescrease, FamilyDiscount ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AdjustmentType.RenewalIndicator">
+            <summary>Indicates whether the adjustment should be applied to future agreement renewals</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.DirectDebitType.AddedDate">
+            <summary>The date/time the remark was created</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.DirectDebitType.DirectDebitStatusCode">
+            <summary>Indicates whether the financial account is enabled for direct debit</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.DirectDebitType.DirectDebitTypeCode">
+            <summary>The direct debit type eg. Card, BankAccount, etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FinancialAccountType">
+            <summary>Contains information about the financial account</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FinancialAccountType.AccountHolderName">
+            <summary>Name of the account holder of the bank account or credit card</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FinancialAccountType.CardExpirationYearMonth">
+            <summary>The year and month the credit card expires</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FinancialAccountType.FinancialAccountTypeCode">
+            <summary>The financial account type eg. Savings, Credit, Debit, Unknown, etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.AddedBy">
+            <summary>The person/user who created the remark</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.AddedDate">
+            <summary>The date/time the remark was created</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.EndDate">
+            <summary>The date/time the remark will end</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.LastModifiedBy">
+            <summary>The person/user who last modified the remark</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.LastModifiedDate">
+            <summary>The date/time the remark was last modified</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.PrintIndicator">
+            <summary>Indicates whether the remark should appear on printed material</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.RemarkSubTypeCode">
+            <summary>A code indicating the subtype of remark</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.RemarkTypeCode">
+            <summary>A code indicating the type of remark eg. Note, Declaration, DutyOfDisclosure ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.StartDate">
+            <summary>The date/time the remark will start</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RemarkInformationType.Status">
+            <summary>Status of the remark</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.BillingType.Frequency">
+            <summary>The billing frequency description</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.BillingType.FrequencyCode">
+            <summary>The billing frequency code</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.BillingType.InstalmentCount">
+            <summary>The number of instalments in which the amount will be paid</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PaymentType.FinancialTransactionCode">
+            <summary>The type of financial transaction eg. Receipt, Refund, Settlement ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PaymentType.PaymentStatusCode">
+            <summary>The status of the payment eg. Requesting, Issued, Cleared, Stopped, Voided ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PaymentType.PaymentTypeCode">
+            <summary>The payment type eg. CreditCard, DebitCard, EFT ...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType">
+            <summary>Details about a vehicle engine</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType.CapacityMeasure">
+            <summary>The capacity of an engine (ie. litres)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType.CylinderCount">
+            <summary>The number of cylinders of the engine</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType.Description">
+            <summary>A description of the engine</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType.DisplacementMeasure">
+            <summary>The displacement of the engine or motor</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType.EngineConfigurationName">
+            <summary>The name of the engine configuration</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType.FuelTypeCode">
+            <summary>The type of fuel used in the engine eg. Gasoline, Ethanol, Electric, Diesel, Hybrid, NaturealGas...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType.HorsepowerMeasure">
+            <summary>The common measurement when rating an engine's power</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.EngineType.TurbochargedIndicator">
+            <summary>Whether the engine is turbocharged</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.LocationAddressType">
+            <summary>Details about a location</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.LocationAddressType.LocationTypeCode">
+            <summary>The type of location eg. Residential, Postal, Mailing, Billing, Shipping, Risk...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.LocationAddressType.PrimaryIndicator">
+            <summary>Indicates whether this is the primary location</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.LocationAddressType.ReturnedMailIndicator">
+            <summary>When used for mailing purposes, this indicates whether mail was returned and so the address is no longer valid for mailing
+            NOTE: Could also indicate that there is an issue with the address details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.LocationAddressType.Salutation">
+            <summary>Salutation</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer">
+            <summary>Details about a Manufacturer of a product or item</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer.BrandName">
+            <summary>The brand name of the item. This is used when a manufacturer produced the item that is sold under a different name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer.ManufacturerCode">
+            <summary>An industry code identifying the make of the item</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer.ManufacturerName">
+            <summary>The name of the person or organization that manufactured the item</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer.ModelCode">
+            <summary>An industry code identifying the model of the item</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer.ModelName">
+            <summary>The manufacturer model name for this item</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer.ModelSeries">
+            <summary>The series of the base model</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer.ModelVariant">
+            <summary>The line or variation of the model</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Manufacturer.ModelYear">
+            <summary>The model year for this item. May or may not be the actual year built</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OccupancyType">
+            <summary>Details about the occupancy of a residential or commercial building</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OccupancyType.OccupancyTypeCode">
+            <summary>The type of occupancy eg. Owner, Tenant, Seasonal, Vacant, Boarder, Landlord, Commune ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OccupancyType.OtherBusinessOccupiedIndicator">
+            <summary>An indication of whether the property is occupied by a business</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OccupancyType.PermanentOccupiedIndicator">
+            <summary>Indicates whether the property is permanently occupied</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OptionType">
+            <summary>A code that identifies specific extension, restrictions or exclusions that modify the coverage and may or may not affect the premium</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OptionType.Description">
+            <summary>A description of the option</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OptionType.OptionTypeCode">
+            <summary>A code that represents the type of option</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OptionType.SubOptionTypeCode">
+            <summary>A code that represents a sub option. This allows for another level of categorisation/classification of the option type</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OptionType.ValueAmount">
+            <summary>The amount of the option</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OptionType.ValueIndicator">
+            <summary>Indicator reflecting the option (True/False, Yes,No)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OptionType.ValueInteger">
+            <summary>A numerical value of the option</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.OptionType.ValuePercent">
+            <summary>The percentage of the option</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PerilType">
+            <summary>A list of included and excluded perils eg. Fire, Flood ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.AgreementEndDate">
+            <summary>The date/time that the product agreement is due to expire</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.AgreementStartDate">
+            <summary>The date/time that the product agreement starts</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.BrandCode">
+            <summary>The brand code for the product agreement. This is to support white labeling</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.BroadLOBCode">
+            <summary>Broad Line of Business code eg. CI (Commercial Insurance), PI (Personal Insurance), PA (Personal Assistance), CA (Commercial Assistance)
+            NOTE: The BroadLOB values are restricted by the Pillar</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.ChannelCode">
+            <summary>The channel that the product agreement was generated from</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.CompanyCode">
+            <summary>Usage: Used for GL postings</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.EffectiveDate">
+            <summary>The effectve date of the most recent update to this product agreement</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.InceptionDate">
+            <summary>The original date/time that the product was purchased</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.LOBCode">
+            <summary>Line of Business code eg. Motor, Home, Pet, CTP (Compulsary Third Party), RSA (Roadside Assistance), AM (Associate Motoring), HA (Home Assistance), LS (Lifestyle)
+            NOTE: The LOB values are restricted by the BroadLOB</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.PaidStatusCode">
+            <summary>The payment status of the product agreement as at claim lodgement date for payment due eg. Reconciled, PartiallyPaid, Unreconciled, Instalment, Paid, Unpaid ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.PillarCode">
+            <summary>Business pillar eg. INS (Insurance), ASSIST (Assistance), BANK (Banking)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.ProductAgreementReferenceId">
+            <summary>A unique identifier/reference generated by the "product system" (eg. PolicyCenter, MARS...etc) for the agreement. Each product system manages is own agreements</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.ProductId">
+            <summary>The identifier of the product that the product agreement represents</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.ProductTypeCode">
+            <summary>The product type eg. Vehicle, Watercraft, Property, Pet, Lifestyle, Strata, Roadside, AssociateMotoring, HomeAssist
+            NOTE: The options available are determined by the Pillar, BroadLOB and LOB</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.ProductVersion">
+            <summary>This represents the version of the product ie. PDS version</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.StatusCode">
+            <summary>This represents the status of the product agreement</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.TerminationDate">
+            <summary>The date/time that the product agreement was terminated (cancelled)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.TerminationReason">
+            <summary>The reason that the product agreement was terminated (cancelled)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreementBaseType.UnderwritingCompanyCode">
+            <summary>Usage: The company is used together with the ProductType to identify the right products, formulas...etc for pricing</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.AddressList">
+            <summary>Address of the policy holder i.e. Policy Address</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.AgreementStartDate">
+            <summary>The date/time that the product agreement starts</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.AgreementEndDate">
+            <summary>The date/time that the product agreement is due to expire</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.BrandCode">
+            <summary>The brand code for the product agreement. This is to support white labeling</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.BroadLOBCode">
+            <summary>Broad Line of Business code eg. CI (Commercial Insurance), PI (Personal Insurance), PA (Personal Assistance), CA (Commercial Assistance)
+            NOTE: The BroadLOB values are restricted by the Pillar</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.ChannelCode">
+            <summary>The channel that the product agreement was generated from</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.CompanyCode">
+            <summary>Usage: Used for GL postings</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.CoOwnersList">
+            <summary>Co-members/co-owners of product systems</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.EffectiveDate">
+            <summary>The effectve date of the most recent update to this product agreement</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.InceptionDate">
+            <summary>The original date/time that the product was purchased</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.IsMembershipEligible">
+            <summary>Whether Membership is eligible or not for that particular asset/product</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.LOBCode">
+            <summary>Line of Business code eg. Motor, Home, Pet, CTP (Compulsary Third Party), RSA (Roadside Assistance), AM (Associate Motoring), HA (Home Assistance), LS (Lifestyle)
+            NOTE: The LOB values are restricted by the BroadLOB</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.PaidStatusCode">
+            <summary>The payment status of the product agreement as at claim lodgement date for payment due eg. Reconciled, PartiallyPaid, Unreconciled, Instalment, Paid, Unpaid ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.PillarCode">
+            <summary>Business pillar eg. INS (Insurance), ASSIST (Assistance), BANK (Banking)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.ProductAgreementReference">
+            <summary>A unique identifier/reference generated by the "product system" (eg. PolicyCenter, MARS...etc) for the agreement. Each product system manages is own agreements</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.ProductId">
+            <summary>The identifier of the product that the product agreement represents</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.ProductTypeCode">
+            <summary>The product type eg. Vehicle, Watercraft, Property, Pet, Lifestyle, Strata, Roadside, AssociateMotoring, HomeAssist
+            NOTE: The options available are determined by the Pillar, BroadLOB and LOB</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.ProductVersion">
+            <summary>This represents the version of the product ie. PDS version</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.StatusCode">
+            <summary>This represents the status of the product agreement</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.TerminationDate">
+            <summary>The date/time that the product agreement was terminated (cancelled)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductAgreement.TerminationReason">
+            <summary>The reason that the product agreement was terminated (cancelled)</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.CoOwnersReferenceType">
+            <summary>Identifier of APTTUS CoOwner.</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FlagIdentifierType">
+            <summary>Details of various flags or indicators like DeliquencyFlag, TroubleTicketsExist etc. Only allows boolean values.</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType">
+            <summary>Details about a Pet</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.BirthDate">
+            <summary>The date of birth of the pet</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.Breed">
+            <summary>The breed of the pet
+            NOTE: This is restricted based on the type of pet</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.BreedCode">
+            <summary>A code representing the breed of the pet. 
+            NOTE: This is restricted based on the type of pet</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.Description">
+            <summary>Details of the pet</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.DesexedIndicator">
+            <summary>Indicates whether the pet has been desexed</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.ExternalIdentifierList">
+            <summary>External identifiers for the pet eg. Microchip number, registration number ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.GenderCode">
+            <summary>A code representing the gender of the pet eg. Female, Male</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.LastVaccinationDate">
+            <summary>The date of the pets last vaccination</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.Name">
+            <summary>Name of the pet</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.PetTypeCode">
+            <summary>The type of pet eg. Dog, Cat ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.PreExistingConditionIndicator">
+            <summary>Indicates whether the pet has pre existing health conditions</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PetCoverableType.Veterinary">
+            <summary>Details of the pets regular vet</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType">
+            <summary>Details about an individual's name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.CombinedGivenNames">
+            <summary>Contains the combined given names as they are to appear on printed documents</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.FullName">
+            <summary>The complete name of a person</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.GivenNameList">
+            <summary>The given name(s) of the individual</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.Initials">
+            <summary>All initials excluding surname. NOTE: There should be NO punctuation, spaces or formatting.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.NameSuffix">
+            <summary>A designation that follows a person's full name and provides additional information about that person eg. Jr, PhD ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.Nickname">
+            <summary>A familiar name for a person (often a shortened version of a person's given name)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.PersonNameTypeCode">
+            <summary>The type of name eg. Legal, Alias, Primary, Preferred, Previous, Maiden Name ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.PersonTitlePrefix">
+            <summary>Any phrase to precede the name which is not part of the actual name eg. Mr., Dr., Mrs. ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.PersonTitlePrefixCode">
+            <summary>A code for the phrase to precede the name which is not part of the actual name eg. Mr, Dr, Mrs ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.PreferredIndicator">
+            <summary>Indicates whether this is the preferred person name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PersonNameType.Surname">
+            <summary>The name or compound name used by an individual to denote his/her familial, tribal or geographic antecedents</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType">
+            <summary>Contains information about the use of a watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType.Description">
+            <summary>Details of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType.SelfBuiltIndicator">
+            <summary>Indicates whether the watercraft is self built</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType.StorageMooring">
+            <summary>Watercraft storage and mooring information</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType.Watercraft">
+            <summary>Details about the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType.WatercraftCoverableTypeCode">
+            <summary>The type of watercraft coverable that this defines eg. Combined, Watercraft, WatercraftEngine, WatercraftTrailer, WatercraftEquipment ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType.WatercraftRig">
+            <summary>Watercraft rig information</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType.WatercraftTrailer">
+            <summary>Information relating to the trailer used to transport
+            any type of watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftCoverableType.WaterskiIndicator">
+            <summary>Indicates whether the watercraft is used for waterskiing</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StorageMooringType">
+            <summary>Watercraft storage and mooring information</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StorageMooringType.LastServicedDate">
+            <summary>The date the watercraft was last serviced</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StorageMooringType.StoredIndicator">
+            <summary>Indicates whether the watercraft is stored</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StorageMooringType.StreetParkedIndicator">
+            <summary>Indicates whether the watercraft is street parked</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEngineType">
+            <summary>Information relating to the motor of any type of watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEngineType.Description">
+            <summary>A description of the watercraft engine</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEngineType.Engine">
+            <summary>Contains information about the watercraft engine</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEngineType.InBoardIndicator">
+            <summary>Indicates whether the engine is an Inboard</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEngineType.Manufacturer">
+            <summary>Contains manufacturer information of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEngineType.MarineManufacturedIndicator">
+            <summary>Indicates whether the engine has been manufactured for marine purposes</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentMeasurementType">
+            <summary>Contains watercraft equipment measurement details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentMeasurementType.HeightMeasure">
+            <summary>The height of the equipment</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentMeasurementType.LengthMeasure">
+            <summary>The length of the equipment</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentMeasurementType.WeightMeasure">
+            <summary>The weight of the equipment</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentMeasurementType.WidthMeasure">
+            <summary>The width of the equipment</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentType">
+            <summary>Information relating to any type of equipment for any type of watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentType.Description">
+            <summary>A description of the equipment</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentType.Manufacturer">
+            <summary>Contains manufacturer information for the equipment</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentType.Measurement">
+            <summary>Contains the measurements of the equipment</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentType.PurchaseDate">
+            <summary>The date the equipment was purchased</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentType.ValueAmount">
+            <summary>An amount representing the value of the equipment</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftEquipmentType.WatercraftEquipmentTypeCode">
+            <summary>The type of equipment eg. DepthSounder, Radar, BilgePump, LifeboatTender, PortableAccessories ...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftMeasurementType">
+            <summary>Contains watercraft measurement details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftMeasurementType.CapacityMeasure">
+            <summary>The capacityof the watercraft ie. number of people it can sleep</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftMeasurementType.HeightMeasure">
+            <summary>The height of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftMeasurementType.LengthMeasure">
+            <summary>The length of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftMeasurementType.WeightMeasure">
+            <summary>The weight of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftMeasurementType.WidthMeasure">
+            <summary>The width of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftMeasurementType.MaximumSpeedMeasure">
+            <summary>The highest speed attainable by the watercraft</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftRigType">
+            <summary>Watercraft rig infomration</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftRigType.LastServicedDate">
+            <summary>The date the watercraft rig was last serviced</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftRigType.RodRiggedIndicator">
+            <summary>Indicates whether the watercraft is rod rigged</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftRigType.SailCount">
+            <summary>The number of sails</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftRigType.SpreaderCount">
+            <summary>The number of spreaders for the watercraft rig</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerMeasurementType">
+            <summary>Contains watercraft trailer measurements details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerMeasurementType.HeightMeasure">
+            <summary>The height of the trailer</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerMeasurementType.LengthMeasure">
+            <summary>The length of the trailer</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerMeasurementType.WeightMeasure">
+            <summary>The weight of the trailer</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerMeasurementType.WidthMeasure">
+            <summary>The width of the trailer</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerMeasurementType.WeightCapacityMeasure">
+            <summary>The weight capacity of the trailer</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerType">
+            <summary>Information relating to the trailer used to transport any type of watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerType.AxleCount">
+            <summary>The number of axles</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerType.ConstructionMaterialCode">
+            <summary>A code representing the material the trailer is made from eg. Steel, Metal ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerType.Description">
+            <summary>A decription of the trailer</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerType.Manufacturer">
+            <summary>Contains manufacturer information for the watercraft trailer</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerType.Measurement">
+            <summary>Contains the measurements details of the trailer</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftTrailerType.Registration">
+            <summary>Registration details of the trailer</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.Condition">
+            <summary>The condition of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.Description">
+            <summary>A description of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.HullDesignCode">
+            <summary>A code representing the design of a watercraft hull eg. Catamaran, FlatBottom, Other, RoundBottom, VeeBottom...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.HullMaterialCode">
+            <summary>A code representing the material from which a watercraft hull is constructed eg. Aluminum, Fiberglass, Metal, Rubber, Steel, InflatableFabric, Wood...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.Manufacturer">
+            <summary>Manufacturer details of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.Measurement">
+            <summary>Measurement details of the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.PropulsionCode">
+            <summary>A code identifying the type of propulsion used for the watercraft eg. Sail, Waterjet, Inboard, Outboard, None, Other ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.PurchaseDate">
+            <summary>The date the watercraft was purchased</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.RacingIndicator">
+            <summary>Indicates whether the watercraft is used for racing</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.WatercraftName">
+            <summary>The name given to the watercraft</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WatercraftType.WatercraftTypeCode">
+            <summary>The type of watercraft eg. Motorboat, Jetski, Rowboat, Sailboat, Canoe, Yacht, Skiboat, Catamaran, InboardMotorboat…etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PropertyCoverableType">
+            <summary>Contains information about a personal or commercial property, its occupancy, features, and any structures</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PropertyCoverableType.Occupancy">
+            <summary>Contains baisc information about the occupancy of a residential or commercial building</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PropertyCoverableType.PropertyTypeCode">
+            <summary>The type of property eg. ResidentialProperty, CommercialProperty, FarmProperty, OtherProperty ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PropertyCoverableType.SwimmingPoolIndicator">
+            <summary>Indicates whether or not a swimming pool exists</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PropertyFeatureType">
+            <summary>A special feature of a property</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PropertyFeatureType.Description">
+            <summary>A description of the property feature</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.PropertyFeatureType.PropertyFeatureTypeCode">
+            <summary>Identifies the type of property feature eg. AirConditioning, Balcony, Verandah, GardenShed, GrannyFlat, SwimmingPool, Gymnasium, Playground, TennisCourt ...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Registration">
+            <summary>A collection of data providing information about where and how ownership of an object if recorded</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Registration.Id">
+            <summary>The registration number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Registration.JurisdictionCode">
+            <summary>The jurisdiction (state) that issued the identifier (registration)</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Registration.RegistrationDate">
+            <summary>The date the item will or was registered</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Registration.RegistrationTypeCode">
+            <summary>Whether the registration is current one or the previous (original) one</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureMeasurementType">
+            <summary>Contains structural measurement details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureMeasurementType.CapacityMeasure">
+            <summary>The capacity of the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureMeasurementType.HeightMeasure">
+            <summary>The height of the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureMeasurementType.LengthMeasure">
+            <summary>The length of the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureMeasurementType.TotalAreaMeasure">
+            <summary>The total area of the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureMeasurementType.WeightMeasure">
+            <summary>The weight of the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureMeasurementType.WidthMeasure">
+            <summary>The width of the structure</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType">
+            <summary>Contains structure details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.AboveGroundIndicator">
+            <summary>Indicates whether the structure is above ground</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.ApartmentCount">
+            <summary>The number of separate living units in the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.AttachedSatelliteDishIndicator">
+            <summary>Indicates whether this building has an attached satellite dish</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.BuildingStyleCode">
+            <summary>A code that defines the overall style of construction of the structure eg. Colonial, StorageFacility, SplitLevel, Cottage, Dome, Terrace, GrannyFlat, Vixtorian, Townhouse ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.BuildingStyleDescription">
+            <summary>A descripton of the indicated building style</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.BuiltYear">
+            <summary>The year the structure was built</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.ConditionCode">
+            <summary>A code indicating the  physical condition of a
+            structure eg. New, Poor, Fair, Broken, Excellent ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.Construction">
+            <summary>Information about the
+            construction of a structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.Description">
+            <summary>A description of the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.ElevatorCount">
+            <summary>The count of evevators</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.ElevatorIndicator">
+            <summary>Indicates whether one or more elevators are present</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.KitchenUseCode">
+            <summary>A code indicating the use of a kitchen eg. NoKitchen, Domestic, Commercial ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.Measurement">
+            <summary>Contains the measurements details of the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.Roof">
+            <summary>Information about the roof on a structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.RoomCount">
+            <summary>The total number of rooms in the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.SafetySwitchFittedIndicator">
+            <summary>Indicates whether an electrical safety switch has been fitted</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.StoreyCount">
+            <summary>The number of stories the structure has above ground</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.StructureTypeCode">
+            <summary>The type of structure eg. Garage, Chimney, Bunkhouse, StorageTank, WorkShed ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.TownWaterConnectedIndicator">
+            <summary>Indicaties whether the property is connected to town water</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.StructureType.UpgradedYear">
+            <summary>The year the building or structure was upgraded</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.SwimmingPoolType">
+            <summary>Details regarding the characteristics of a swimming pool</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.SwimmingPoolType.AboveGroundIndicator">
+            <summary>Indicates whether the pool is above ground</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.SwimmingPoolType.ApprovedFenceIndicator">
+            <summary>Indicates whether the fence height has been approved</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.SwimmingPoolType.Measurement">
+            <summary>Measurement information of the pool</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.SwimmingPoolType.PoolConstructionCode">
+            <summary>A code identifying the construction of a swimming pool eg. Fiberglass, Concrete ...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Transmission">
+            <summary>Information about the transmission of a vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Transmission.Description">
+            <summary>A description of the transmission</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Transmission.DrivenWheelsCount">
+            <summary>The number of wheels driven by the transmission</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Transmission.DriveType">
+            <summary>The Type of Drive eg: FWD,AWD, RWD</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Transmission.GearCount">
+            <summary>The Gear Count eg: 6</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Transmission.TransmissionTypeCode">
+            <summary>The type of transmission eg. Automatic, Manual</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBaseType.Engine">
+            <summary>Details of the engine</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBaseType.ExternalIdentifier">
+            <summary>External identifiers for the vehicle eg. VIN, NVIC...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBaseType.Manufacturer">
+            <summary>Manufacturer details of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBaseType.MaximumSpeedMeasure">
+            <summary>The highest speed attainable by the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBaseType.Measurement">
+            <summary>Measurement details of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBaseType.Transmission">
+            <summary>Transmission details of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBaseType.VehicleBody">
+            <summary>Vehicle body details</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBody">
+            <summary>Details about the body of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBody.Colour">
+            <summary>The colour</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBody.ColourCode">
+            <summary>An industry code identifying the colour</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBody.Description">
+            <summary>A description of the vehicle body</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBody.SeatingCapacityCount">
+            <summary>The seating capacity of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleBody.VehicleBodyTypeCode">
+            <summary>The type of body eg. Caravan, Trailer, FourWheelDrive, HatchBack, Sedan, Coupe, Convertible, Van, Wagon, Utility...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable">
+            <summary>Contains information about the use of a referenced vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.AntiTheftDeviceIndicator">
+            <summary>Indicates whether the vehicle has anti-theft devices</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.ExistingUnrepairedDamageIndicator">
+            <summary>Indicates whether the vehicle has unrepaired damage at the time of application</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.FinancedIndicator">
+            <summary>Indicates whether the vehicle is financed</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.HighPerformanceIndicator">
+            <summary>Indicates whether the vehicle is classed as high performance</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.IsRegisteredIndicator">
+            <summary>Indicates whether the vehicle is registered or not</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.OdometerReadingAtApplication">
+            <summary>The mileage as read from the odometer at the time of the application</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.OdometerReadingAtPurchase">
+            <summary>The mileage as read from the odometer at the time the vehicle was purchased</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.Vehicle">
+            <summary>Details about the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.VehicleClassCode">
+            <summary>The general classification of a vehicle eg. Commercial, Private, Caravan, LightCommercial, PrimeMover, Motorcycle, Bus, Passenger, Trailer, Truck...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.VehicleModificationsIncludedIndicator">
+            <summary>Indicates whether the vehicle has modifications</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.VehicleOptionsIncludedIndicator">
+            <summary>Indicates whether the vehicle has options</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleCoverable.VehicleUse">
+            <summary>Details about how the vehicle is used</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleMeasurementType">
+            <summary>Contains vehicle measurement details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleMeasurementType.HeightMeasure">
+            <summary>The height of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleMeasurementType.KerbWeightMeasure">
+            <summary>The kerb weight of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleMeasurementType.LengthMeasure">
+            <summary>The length of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleMeasurementType.MassMeasure">
+            <summary>The mass weight of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleMeasurementType.WeightMeasure">
+            <summary>The weight of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleMeasurementType.WidthMeasure">
+            <summary>The width of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleMeasurementType.LoadCapacityMeasure">
+            <summary>The width of the vehicle</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleModificationType">
+            <summary>A modification made to a vehicle including the value and the date it was modified</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleModificationType.Description">
+            <summary>A description of the modification</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleModificationType.ExcessAmount">
+            <summary>The excess amount applied for this modification</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleModificationType.ModifiedDate">
+            <summary>The date the modification was made</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleModificationType.ValuationTypeCode">
+            <summary>The valuation method used in determining the value at the time of loss eg. InvoiceCost, MarketValue, RepairReplacement, ReplacementCost, AgreedValue, SumInsured...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleModificationType.ValueAmount">
+            <summary>The value of the specified vehicle modification</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleModificationType.VehicleModificationTypeCode">
+            <summary>The type of modification eg. Performance, Cosmetic, Suspension, Wheels, Paint, Body, Engine...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleOptionType">
+            <summary>Information describing options and accessories on a vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleOptionType.Description">
+            <summary>A description of the vehicle option</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleOptionType.ExcessAmount">
+            <summary>The excess amount applied for this option or accessory</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleOptionType.ValueAmount">
+            <summary>The value of the specified vehicle option or accessory</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleOptionType.VehicleOptionCode">
+            <summary>The specific code for the vehicle option or accessory eg. SportWheels, Canopy, MetallicPaint, ParkAssit, RoofRack, MagWheels, SpotLights, SoundEquipment, Spoiler, CruiseControl, SunRoof, AirConditioning, TowBar...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleOptionType.VehicleOptionTypeCode">
+            <summary>The type of option eg. Standard, Optional, NonStandard ...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.UnrepairedDamageType">
+            <summary>The condition or specific damage to the vehicle/item</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.UnrepairedDamageType.Description">
+            <summary>A description of the damage</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.UnrepairedDamageType.UnrepairedDamageTypeCode">
+            <summary>The type of damage eg. Rust, Collision, Hail, MinorDents, Scratches, Other...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Vehicle.Engine">
+            <summary>Details of the engine</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Vehicle.ExternalIdentifierList">
+            <summary>External identifiers for the vehicle eg. VIN, NVIC...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Vehicle.Manufacturer">
+            <summary>Manufacturer details of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Vehicle.MaximumSpeedMeasure">
+            <summary>The highest speed attainable by the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Vehicle.Measurement">
+            <summary>Measurement details of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Vehicle.Transmission">
+            <summary>Transmission details of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Vehicle.VehicleBody">
+            <summary>Vehicle body details</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleUseType">
+            <summary>Details about the use of a vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleUseType.AnnualDistanceMeasure">
+            <summary>The annual distance the vehicle is used</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleUseType.Description">
+            <summary>A description of the use of the vehicle</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleUseType.RadiusMeasure">
+            <summary>The radius in whole numbers within which the vehicle is operated</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleUseType.RadiusUseCode">
+            <summary>A code describing the vehicle's radius of use eg. Local, LongDistance, Intermediate</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleUseType.VehicleSpecialUseCode">
+            <summary>A code indicating any special use of this vehicle eg. FarmToMarket, MovingVan, LiquifiedProducts, EmergencyVehicle, Explosives...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleUseType.VehicleUseTypeCode">
+            <summary>The type of use eg. Trade, Service, OffRoadDriving, PrivateExclusive, TrailerOrCaravan, Business, CarPool, Commercial, Comute, Private, Domestic...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AntiTheftDeviceType">
+            <summary>Anti theft device details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AntiTheftDeviceType.AntiTheftDeviceProductCode">
+            <summary>Product code of the security device</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AntiTheftDeviceType.AntiTheftTypeCode">
+            <summary>The type of security device eg. Alarm, MicroDotting, LockedGarage, Immobiliser, SteeringLock, AlarmAndImmobiliser...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AntiTheftDeviceType.Description">
+            <summary>A description of the anti-theft device</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType">
+            <summary>Addresses - postal, physical, etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.Usage">
+            <summary>The role or use of the address in relation to the client. (Can be an Australian address whilst the client is overseas). Examples include:
+            Primary address-The property address normally used by the client. (These
+            addresses desirably should have been assigned by a Council)
+            NOTE: Where this is the principal place of residence of the client the residential
+            code should be used.
+            Secondary address-The address of an additional property attached to the client.
+            Residential-The address of the principal place of residence for the client.
+            Temporary accommodation-The address where the client is resident for a
+            temporary period.
+            Business-The address of the principal place of business for the client.
+            Overseas address-The address used by the client when overseas.
+            Delivery address-The address used for goods delivery purposes.
+            Postal/correspondence-The address used by the client for receipt of
+            correspondence.
+            Where the address purpose is not stated or unknown a null entry will be recorded.
+            An address may have more than one purpose.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.CountryName">
+            <summary>A code indicating the country, territory, colony or dependency for an address. The recommended Code description is the list of Country Name Codes in ISO 3166.
+            Other Code description may be used though should be accompanied by metadata to
+            perform the conversion from the abbreviation to the full description as agreed by
+            the involved parties.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.PostCode">
+            <summary>The Australian numeric descriptor for a postal delivery area, aligned with locality, suburb or place</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.StateTerritory">
+            <summary>The State or Territory code of the address</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.Line1">
+            <summary>Free text address line 1. Unstructured address may be repeated up to 4 lines (NOTE: where this is an
+            overseas address the country name code becomes mandatory). This is also used for overseas addresses. NOTE: Where there is a need to transfer an Australian address that does not
+            conform with the commonly used address format, the unstructured address lines
+            may be used. These data elements should not be used except when it is impossible
+            to use of the other more structured address data elements.
+            While 4 lines have been provided for unstructured Australian address details, not all
+            lines need to be used.
+            Unstructured address lines, when used, should contain the entire address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.LocalityName">
+            <summary>The name of the locality/suburb of the address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.SiteName">
+            <summary>RACQ - Extra information eg. building name, property name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.StreetNumber1">
+            <summary>Start of Range Number of the street, e.g.21-25 Archer Street, where streetNumber1 is 21</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.StreetName">
+            <summary>Start of Range Number of the street, e.g.21-25 Archer Street, where streetName is Archer Street</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.PostalDeliveryType">
+            <summary>Identification for the channel of postal delivery. Usage: Used where mail is to be delivered to a box, bag or agent for pick-up by the
+            intended recipient or to the rural mail box number where no other address exists.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.PostalDeliveryNumber">
+            <summary>PO Box Number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.UnitNumber">
+            <summary>Mrs Joyce Citizen	 
+            Apartment 7 	(Sub dwelling unit number is 7)
+            Level 3	
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.UnitType">
+            <summary>Mrs Joyce Citizen	
+            Apartment 7 	(Sub-dwelling unit type code is APT)
+            Level 3	
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.BuildingLevel">
+            <summary>Mrs Joyce Citizen	
+            Apartment 7 
+            Level 3	(BuildingLevel is 3)
+            Apex Building	
+            48 Johnson Rd	
+            CLAYTON VIC 3168	</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.InternationalPostCodeZipCode">
+            <summary>RACQ - To support capturing of international addresses</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.InternationalStateTerritoryRegion">
+            <summary>RACQ - To support capturing of international addresses</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.DeliveryPoint">
+            <summary>A unique number created by Australia Post for an address.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.Addressee">
+            <summary>RACQ - Mailing name for an address</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.ClientCurrency">
+            <summary>Details the relationship between the client and the associated address at the point in time of interchange. The examples provided list the recommended values. Use of additional or
+            alternative Domain values should be accompanied by metadata as agreed by the
+            involved parties.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.AddressType.UsagePeriod">
+            <summary>Usage Period of the address. Start datetime, enddatetime</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FinancialIdentifierList">
+            <summary>The financial identifiers
+            
+            Usage: for InstitutionName eg. Commonwealth Bank
+                   NOTE: The name of the Bank, Credit Card company
+                   
+            Usage: for CardPaymentProcessor eg. Visa, MasterCard, AmericanExpress, etc
+                   NOTE: The networks that process payments between banks and merchants for purchases made with the cards eg. Visa, MasterCard
+            
+            Usage: for AccountNumberId (Bank account number, Credit/Debit card number)
+                   NOTE: A unique number assigned to the account by the financial institution to identify that account within its business context
+            
+            Usage: for CardSecurityId
+                   NOTE: This is the security id on a credit or debit card
+            
+            Usage: for BSBBankCode 
+                   NOTE: First 3 digits of the BSB number
+            
+            Usage: for BSBBranchCode
+                   NOTE: Last 3 digits of the BSB number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FinancialIdentifierList.TypeCode">
+            <summary>Indicates the type of the financial identifier eg. InstitutionName, CardPaymentProcessor, AccountNumberId, CardSecurityId, BSBBankCode, BSBBranchCode...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList">
+            <summary>The type of external identifier (assigned by a third party) eg. Engine number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList.IdentifierTypeCode">
+            <summary>eg. EngineNumber</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductClassificationCode">
+            <summary>The product classification codes
+            
+            Usage: for Brand eg. RACQ
+                   NOTE: This is to support white labeling
+            
+            Usage: for Pillar eg. INS (Insurance), ASSIST (Assistance), BANK (Banking)
+            
+            Usage: for BroadLOB (Broad Line of Business) eg. CI (Commercial Insurance), PI (Personal Insurance), PA (Personal Assistance), CA (Commercial Assistance)
+                   NOTE: The BroadLOB values are restricted by the Pillar
+            
+            Usage: for LOB (Line of Business) eg. Motor, Home, Pet, CTP (Compulsary Third Party), RSA (Roadside Assistance), AM (Associate Motoring), HA (Home Assistance), LS (Lifestyle)
+                   NOTE: The LOB values are restricted by the BroadLOB
+            
+            Usage: for ProductType eg. Vehicle, Watercraft, Property, Pet, Lifestyle, Strata, Roadside, AssociateMotoring, HomeAssist
+                   NOTE: The options available are determined by the Pillar, BroadLOB and LOB</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ProductClassification">
+            <summary>The product classification codes
+            
+            Usage: for Brand eg. RACQ
+                   NOTE: This is to support white labeling
+            
+            Usage: for Pillar eg. INS (Insurance), ASSIST (Assistance), BANK (Banking)
+            
+            Usage: for BroadLOB (Broad Line of Business) eg. CI (Commercial Insurance), PI (Personal Insurance), PA (Personal Assistance), CA (Commercial Assistance)
+                   NOTE: The BroadLOB values are restricted by the Pillar
+            
+            Usage: for LOB (Line of Business) eg. Motor, Home, Pet, CTP (Compulsary Third Party), RSA (Roadside Assistance), AM (Associate Motoring), HA (Home Assistance), LS (Lifestyle)
+                   NOTE: The LOB values are restricted by the BroadLOB
+            
+            Usage: for ProductType eg. Vehicle, Watercraft, Property, Pet, Lifestyle, Strata, Roadside, AssociateMotoring, HomeAssist
+                   NOTE: The options available are determined by the Pillar, BroadLOB and LOB</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList2">
+            <summary>Identifier for the pet</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList2.Id">
+            <summary>The identifier</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList2.IdentifierTypeCode">
+            <summary>A code representing the type of identifier eg. Microchip, Registration ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Veterinary.PraticeName">
+            <summary>The name of the veterinary practice</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Veterinary.Suburb">
+            <summary>The suburb where the veterinary practice is located</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Veterinary.VeterinaryName">
+            <summary>Name of the vet
+            NOTE: Only needs to be provided when there is no PartyReference</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.GivenNameList.GivenName">
+            <summary>Individuals given name</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList3">
+            <summary>Usage: engine number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList3.IdentifierTypeCode">
+            <summary>eg. EngineNumber</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList4">
+            <summary>Usage: serial number</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList5">
+            <summary>Usage: serial number</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ExternalIdentifierList6">
+            <summary>External identifiers for the watercraft eg registration number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Construction.ConstructionTypeCode">
+            <summary>The type of construction material eg. Steel, CementFiber, Concrete, BrickVeneer, TimberWeatherboard ...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FloorList">
+            <summary>Information for the floor of a structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FloorList.FloorAreaMeasure">
+            <summary>The floor area measurement</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FloorList.FloorMaterialCode">
+            <summary>A code representing the material used on a floor eg. Concrete, IronSteel, Brick, Wood, Mixed ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.FloorList.MaterialDescription">
+            <summary>A descripton of the material used</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ImprovementList">
+            <summary>Improvement made on the structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ImprovementList.Description">
+            <summary>A description of the improvement</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ImprovementList.ImprovementTypeCode">
+            <summary>The type of improvement eg. ExteriorPaint, Plumbing, Roofing, Wiring, HeatingSystem, OtherStructure ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.ImprovementList.ImprovementYear">
+            <summary>The year of the improvement</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Roof.ConditionCode">
+            <summary>A code indicating the condition of the roof eg. Average, Excellent, Good ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Roof.Description">
+            <summary>A description of the roof</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.Roof.RoofTypeCode">
+            <summary>The type of roof eg. TerraCotta, ConcreteTile, Copper, CorrugatedSteel, Fibrerglass, Timber, Slate ...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RoomTypeCountInformationList">
+            <summary>Details relating to counts of specific room types</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RoomTypeCountInformationList.RoomTypeCode">
+            <summary>The type of room eg. Bathroom, Lounge, Garage, Office, Kitchen, Workshop, Laundry, Rumpus ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.RoomTypeCountInformationList.UnitCount">
+            <summary>The number of the specified romm type</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WallList">
+            <summary>Information on the walls of a structure</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WallList.MaterialDescription">
+            <summary>A description of the material used</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.WallList.WallMaterialCode">
+            <summary>A code representing the material used on a wall eg. Steel, Concrete, Brick, CementFibre, BrickVeneer, Wood, Mixed ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleType2.Code">
+            <summary>The type of vehicle code  eg. CCG, CVG, HCV, IMP, MAR, MCG, MOB, MTR, OCG...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleType2.Description">
+            <summary>The type of vehicle eg. Caravan and Camper, Light Commercial Vehicle, Heavy Commercial Vehicle...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleType1.Code">
+            <summary>The type of vehicle code  eg. CCG, CVG, HCV, IMP, MAR, MCG, MOB, MTR, OCG...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.VehicleType1.Description">
+            <summary>The type of vehicle eg. Caravan and Camper, Light Commercial Vehicle, Heavy Commercial Vehicle...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.QuoteManagement.Model.UsagePeriod.Start">
+            <summary>Start Date</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.EmailType">
+            <summary>Email details of the party</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.AddressType">
+            <summary>Addresses - postal, physical, etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.PartyReferences">
+            <summary>System references for the party eg. D365, PolicyCenter ...etc</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.ExternalIdentifiersType">
+            <summary>The external identifiers of a party</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Organisation">
+            <summary>The party being an organisation, details of the organisation</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Organisation.OrganisationNameList">
+            <summary>The party being an organisation, details of the organisation</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Organisation.OragnisationTypeCode">
+            <summary>The type of organisation eg. Sole Proprietor, Proprietary Limited, Body Corporate</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.PersonName.FirstName">
+            <summary>First name or given name of the person</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.PersonName.LastName">
+            <summary>last name or surname or family name of the person</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Person">
+            <summary>The party being a person, details of the person</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Person.BirthDate">
+            <summary>The date when a person was born</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.ProductAgreement">
+            <summary>Product Agreements are like products/assets owned by a party i.e. Policy information</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.ProductAgreement.ProductAgreementReferenceId">
+            <summary>A unique identifier/reference generated by the product system (eg. PolicyCenter, APTTUS etc) for the agreement. Each product system manages is own agreements i.e. Policy Number</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.ProductAgreement.ProductTypeCode">
+            <summary>A unique identifier for each Product name defined in product systems</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.ProductAgreement.ProductName">
+            <summary>Name of the product i.e. PersonalAuto etc.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.ProductAgreement.ProductId">
+            <summary>A unique identifier for each Product defined in APTTUS</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Party">
+            <summary>Party details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Party.PartyType">
+            <summary>Either Person or Organisation</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.MatchCriteria">
+            <summary>Match Criteria details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Email.EmailAddress">
+            <summary>An electronic mail internet address for a party</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Telephone.TelephoneNumber">
+            <summary>The minimal number that is associated to a unique provision of telephone service as accessed locally through a standard dialling access.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.UnitNumber">
+            <summary>The associated number or identifier for the Unit Type. Can either be depicted by numerals or alpha characters, or a mixture of both</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.LevelNumber">
+            <summary>Used to identify the floor or level of a multi-storey building or complex</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.StreetNumber1">
+            <summary>The number for a property (first number in a property ranged address</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.PostalDeliveryType">
+            <summary>If the address is a postal delivery type then this is used to contain the type eg. CARE PO, GPO BOX, PO BOX, MS, PRIVATE BAG...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.PostalDeliveryNumber">
+            <summary>Postal delivery number if the address is a postal delivery type. This may contain the prefix and suffix</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.StreetName">
+            <summary>Name of the street eg. 23 Archer Road where Archer is the street name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.SuburbName">
+            <summary>The name of the suburb</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.StateTerritory">
+            <summary>The name of the state or province, which should not be abbreviated eg. Queensland, Victoria ...etc</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.PostCode">
+            <summary>The post code</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.Country">
+            <summary>The full name of the country, which should not be abbreviated eg. Australia</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.Address.DeliveryPointId">
+            <summary>A code developed by Australia Post which enables each delivery point in Australia to be uniquely identified</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.ExternalIdentifiers.IdentifierType">
+            <summary>The types like APTTUS Cart Reference Number, CTP Certificate Number, Claim Number, Third Party Product Reference, RACV ID/Product Number, Payment Reference Number, Receipt Number, Insurance Policy Number, Roadside Policy Number, Vehicle Registration Number,Drivers License Number, ABN, ACN, Anonymous insurance quote, Home Assist subscription etc.</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Request.OrganisationNames.OrganisationNameType">
+            <summary>The type of organisation name eg. Trading Name, Registered Business Name</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Response.MessageType.CreationDateTime">
+            <summary>he date time stamp that the Sender created this message</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Response.DataAreaType.Party">
+            <summary>The details of the party</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Response.IdentifierIdentificationType">
+            <summary>A number or code assigned to a party by an organisation, establishment or agency in order to uniquely identify that party. The possible values are not standardized or codified, as the data is dependent on the
+            issuer and type of identifier.
+            Examples:
+            A businesses Australian business number (ABN): 85 087 326 690
+            An individuals Medicare card number (MCN): 2345 56789 8</summary>
+        </member>
+        <member name="T:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Response.Party">
+            <summary>Party details</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Response.Party.Type">
+            <summary>Type of party - person or organisation</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Response.Party.BirthDate">
+            <summary>The date when a person was born</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.MatchParty.Models.Response.Party.PersonStatusIndicator">
+            <summary>RACQ - Used to indicate the status of a person eg. Alive, Deceased</summary>
+        </member>
+        <member name="P:RACQAZ.Channel.CMO.NominationMgmt.v1.API.Nominations.Model.MessageType.CreationDateTime">
+            <summary>he date time stamp that the Sender created this message</summary>
+        </member>
+    </members>
+</doc>

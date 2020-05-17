@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "irkTqWE2fXqXkSk6JGNCSFty8vbvRCmzKtxhktkacdw3c3ve5zf08q2l7nX/ha9Q+G3tQblwHOC4lo8cgLLSkA==",
+  "success": false,
+  "projectFilePath": "C:\\Repos\\RACQAZ.Channel.CMO.NominationMgmt\\main\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.Tests\\RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1.Tests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\paulj\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\paulj\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1 is not compatible with netstandard2.0 (.NETStandard,Version=v2.0). Project RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1 supports: netcoreapp3.1 (.NETCoreApp,Version=v3.1)",
+      "libraryId": "RACQAZWEBAPI.Channel.CMO.NominationMgmt.v1",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
+}

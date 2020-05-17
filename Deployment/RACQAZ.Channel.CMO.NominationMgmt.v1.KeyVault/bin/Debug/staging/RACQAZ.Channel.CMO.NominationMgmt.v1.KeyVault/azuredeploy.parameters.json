@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "keyVaultName": {
+      "value": "#{KeyVaultName}"
+    },
+    "PartyMatchManagementClientSecretKVSecretName": {
+      "value": "#{EnvironmentPrefix}-PartyMatchManagement-client-secret"
+    },
+    "PartyMatchManagementClientSecretKVSecretValue": {
+      "value": "#{PartyMatchManagement-Api-Auth-SecretKVSecretValue}"
+    },
+    "PartyManagementClientSecretKVSecretName": {
+      "value": "#{EnvironmentPrefix}-PartyManagementAuth-client-secret"
+    },
+    "PartyManagementClientSecretValue": {
+      "value": "#{PartyManagement-Api-Auth-SecretKVSecretValue}"
+    },
+    "PartyMatchManagementClientAPIMKey": {
+      "value": "#{EnvironmentPrefix}-PartyMatchManagement-APIM-Key"
+    },
+    "PartyMatchManagementClientAPIMKeyValue": {
+      "value": "#{PartyMatchManagement-Apim-Auth-SecretKVSecretValue}"
+    },
+    "QuoteManagementClientAPIMKey": {
+      "value": "#{EnvironmentPrefix}-QuoteManagement-APIM-Key"
+    },
+    "QuoteManagementClientAPIMKeyValue": {
+      "value": "#{QuoteManagement-Apim-Auth-SecretKVSecretValue}"
+    },
+    "CartManagementClientAPIMKey": {
+      "value": "#{EnvironmentPrefix}-CartManagement-APIM-Key"
+    },
+    "CartManagementClientAPIMKeyValue": {
+      "value": "#{CartManagement-Apim-Auth-SecretKVSecretValue}"
+    },
+    "QuoteManagementClientSecretKVSecretName": {
+      "value": "#{EnvironmentPrefix}-QuoteManagement-client-secret"
+    },
+    "QuoteManagementClientSecretValue": {
+      "value": "#{QuoteManagement-Api-Auth-SecretKVSecretValue}"
+    },
+    "CartManagementClientSecretKVSecretName": {
+      "value": "#{EnvironmentPrefix}-CartManagement-client-secret"
+    },
+    "CartManagementClientSecretValue": {
+      "value": "#{CartManagement-Api-Auth-SecretKVSecretValue}"
+    },
+    "CmoNominationsManagementClientSecretKVSecretName": {
+      "value": "#{EnvironmentPrefix}-CmoNominations-client-secret"
+    },
+    "CmoNominationsManagementClientSecretValue": {
+      "value": "#{CmoNominationsManagement-Api-Auth-SecretKVSecretValue}"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+﻿[*.cs]
+
+# CA1031: Do not catch general exception types
+dotnet_diagnostic.CA1031.severity = none
+
+# CA1305: Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# IDE0022: Use block body for methods
+csharp_style_expression_bodied_methods = false:silent
+
+# CA1707: Identifiers should not contain underscores
+dotnet_diagnostic.CA1707.severity = none
+
+# CA1819: Properties should not return arrays
+dotnet_diagnostic.CA1819.severity = warning
+
+# CA2007: Consider calling ConfigureAwait on the awaited task
+dotnet_diagnostic.CA2007.severity = suggestion

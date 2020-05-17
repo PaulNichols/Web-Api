@@ -1,0 +1,3 @@
+C:\Repos\RACQAZ.Channel.CMO.NominationMgmt\main\Deployment\RACQAZ.Channel.CMO.NominationMgmt.v1.AppService\bin\Debug\appService.parameters.json
+C:\Repos\RACQAZ.Channel.CMO.NominationMgmt\main\Deployment\RACQAZ.Channel.CMO.NominationMgmt.v1.AppService\bin\Debug\appService.json
+C:\Repos\RACQAZ.Channel.CMO.NominationMgmt\main\Deployment\RACQAZ.Channel.CMO.NominationMgmt.v1.AppService\obj\Debug\RACQAZ.Channel.CMO.NominationMgmt.v1.AppService.deployproj.CoreCompileInputs.cache

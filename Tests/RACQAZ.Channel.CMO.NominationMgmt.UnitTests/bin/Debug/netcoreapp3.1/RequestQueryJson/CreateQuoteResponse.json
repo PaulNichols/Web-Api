@@ -1,0 +1,38 @@
+{
+  "ApplicationArea": {
+    "Interaction": {
+      "InteractionDateTime": "2019-12-10T04:04:15.8100664Z",
+      "Originator": {
+        "SystemComponentId": "Assistance.QuoteMgmt.v1",
+        "SystemId": "APIM",
+        "SystemReferenceId": "Create Quote"
+      }
+    }
+  },
+  "DataArea": {
+    "ProductAgreementList": [
+      {
+        "PricingList": [
+          {
+            "Price": 306,
+            "PriceIndicator": true
+          }
+        ],
+        "ProductAgreementReference": [
+          {
+            "TypeCode": "APTTUSQuoteID",
+            "Id": "35574cf9-b92a-ea11-a601-0003fff469c5"
+          },
+          {
+            "TypeCode": "APTTUSCartID",
+            "Id": "86dce345-ba2a-ea11-a601-0003fff469c5"
+          }
+        ]
+      }
+    ]
+
+  },
+  "Result": {
+    "ResultCode": "Success"
+  }
+}

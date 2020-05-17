@@ -1,0 +1,124 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceName": {
+      "value": "#{AppServiceName}"
+    },
+    "appServicePlanResourceGroup": {
+      "value": "#{AppServicePlanResourceGroup}"
+    },
+    "appServicePlanName": {
+      "value": "#{AppServicePlanName}"
+    },
+    "applicationInsightsName": {
+      "value": "#{ApplicationInsightsName}"
+    },
+    "keyVaultBaseUrl": {
+      "value": "#{KeyVaultBaseUrl}"
+    },
+
+    "authTokenEndpoint": {
+      "value": "#{AuthTokenEndpoint}"
+    },
+    "partyMatchManagementBaseAddress": {
+      "value": "#{PartyMatchManagementBaseAddress}"
+    },
+    "partyMatchManagementTimeout": {
+      "value": "#{PartyMatchManagementTimeout}"
+    },
+    "partyMatchManagementResourceId": {
+      "value": "#{PartyMatchManagementResourceId}"
+    },
+
+    "partyMatchManagementAuthSecretKVSecretName": {
+      "value": "#{PartyMatchManagementAuthSecretKVSecretName}"
+    },
+    "partyMatchManagementAuthInstance": {
+      "value": "#{PartyMatchManagementAuthInstance}"
+    },
+    "partyMatchManagementAuthTenantId": {
+      "value": "#{PartyMatchManagementAuthTenantId}"
+    },
+    "partyMatchManagementAuthClientId": {
+      "value": "#{PartyMatchManagementAuthClientId}"
+    },
+
+    "quoteManagementBaseAddress": {
+      "value": "#{QuoteManagementBaseAddress}"
+    },
+    "quoteManagementTimeout": {
+      "value": "#{QuoteManagementTimeout}"
+    },
+    "quoteManagementResourceId": {
+      "value": "#{QuoteManagementResourceId}"
+    },
+
+    "quoteManagementAuthSecretKVSecretName": {
+      "value": "#{QuoteManagementAuthSecretKVSecretName}"
+    },
+    "quoteManagementAuthInstance": {
+      "value": "#{QuoteManagementAuthInstance}"
+    },
+    "quoteManagementAuthTenantId": {
+      "value": "#{QuoteManagementAuthTenantId}"
+    },
+    "quoteManagementAuthClientId": {
+      "value": "#{QuoteManagementAuthClientId}"
+    },
+
+    "cartManagementBaseAddress": {
+      "value": "#{CartManagementBaseAddress}"
+    },
+    "cartManagementTimeout": {
+      "value": "#{CartManagementTimeout}"
+    },
+    "cartManagementResourceId": {
+      "value": "#{CartManagementResourceId}"
+    },
+
+    "cartManagementAuthSecretKVSecretName": {
+      "value": "#{CartManagementAuthSecretKVSecretName}"
+    },
+    "cartManagementAuthInstance": {
+      "value": "#{CartManagementAuthInstance}"
+    },
+    "cartManagementAuthTenantId": {
+      "value": "#{CartManagementAuthTenantId}"
+    },
+    "cartManagementAuthClientId": {
+      "value": "#{CartManagementAuthClientId}"
+    },
+    "partyManagementBaseAddress": {
+      "value": "#{PartyManagementBaseAddress}"
+    },
+    "partyManagementTimeout": {
+      "value": "#{PartyManagementTimeout}"
+    },
+    "partyManagementPath": {
+      "value": "#{PartyManagementPath}"
+    },
+
+    "partyManagementAuthClientId": {
+      "value": "#{PartyManagementAuthClientId}"
+    },
+    "partyManagementAuthSecretKVSecretName": {
+      "value": "#{PartyManagementAuthSecretKVSecretName}"
+    },
+    "serviceBusAuthEntityPath": {
+      "value": "#{ServiceBusAuthEntityPath}"
+    },
+    "serviceBusAuthTransportType": {
+      "value": "#{ServiceBusAuthTransportType}"
+    },
+    "serviceBusAuthEntityEndpoint": {
+      "value": "#{ServiceBusAuthEntityEndpoint}"
+    },
+    "serviceBusAuthEntitySharedAccessKeyName": {
+      "value": "#{EnvironmentPrefix}-CMO-Nominations-SASKey"
+    },
+    "SerilogMinimumLogLevel": {
+      "value": "#{SerilogMinimumLogLevel}"
+    }
+  }
+}
